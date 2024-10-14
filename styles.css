@@ -136,43 +136,37 @@ h2 {
   transform: scale(1.1);
   z-index: 10;
 }
+
 /* General Mobile Adjustments (Portrait) */
 @media (max-width: 600px) and (orientation: portrait) {
   body {
     padding: 10px;
   }
-
   .container {
-    width: 25%;
+    width: 100%;
   }
-
   h1 {
     font-size: 1.8em;
     margin-top: 20px;
   }
-
   h2 {
     font-size: 1em;
     margin-bottom: 10px;
   }
-
   .carousel-container {
-    width: 25%;
-    height: 200px;
-    margin: 5px auto;
+    width: 95%;
+    height: 300px;
+    margin: 10px auto;
   }
-
   .carousel-item {
-    width: 80px;
-    height: 80px;
-    margin-left: -475px;
-    margin-top: -475px;
+    width: 150px;
+    height: 150px;
+    margin-left: -75px;
+    margin-top: -75px;
   }
-
   .carousel-item h3 {
     font-size: 10px;
   }
-
   .contact-info {
     margin-top: 20px;
     flex-direction: column;
@@ -186,31 +180,26 @@ h2 {
     padding: 5px;
     flex-direction: row;
   }
-
   .container {
-    width: 40%;
+    width: 90%;
     flex-direction: row;
     justify-content: space-around;
   }
-
   h1 {
     font-size: 1.5em;
     margin-top: 10px;
   }
-
   .carousel-container {
-    width: 40%;
-    height: 200px;
+    width: 60%;
+    height: 250px;
     margin: 0 auto;
   }
-
   .carousel-item {
-    width: 100px;
-    height: 100px;
-    margin-left: -360px;
-    margin-top: -360px;
+    width: 120px;
+    height: 120px;
+    margin-left: -60px;
+    margin-top: -60px;
   }
-
   .contact-info {
     margin-top: 10px;
     flex-direction: row;
@@ -224,11 +213,10 @@ h2 {
     width: 45%;
     height: 300px;
   }
-
   .carousel-item {
-    width: 150px;
-    height: 150px;
-    margin-left: -357.5px;
-    margin-top: -357.5px;
+    width: 215px;
+    height: 215px;
+    margin-left: -107.5px;
+    margin-top: -107.5px;
   }
 }
