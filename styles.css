@@ -139,7 +139,7 @@ h2 {
 
 @media (max-width: 600px) {
   .carousel-container {
-    height: 250px;
+    height: 200px;
   }
   .carousel-item {
     width: 150px;
