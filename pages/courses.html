@@ -302,3 +302,110 @@
           </li>
           <li>
             בינה מלאכותית ביצירת וידאו מתקדם
+            <span class="description-text">סקירת השפעת AI על יצירת וידאו וטכניקות מתקדמות.</span>
+          </li>
+          <li>
+            אתיקה ויצירתיות בעידן הבינה
+            <span class="description-text">דיון בסוגיות אתיות תוך שמירה על יושרה אמנותית עם כלים AI.</span>
+          </li>
+          <li>
+            AI לאנימציה ואפקטים
+            <span class="description-text">כיצד AI יכול לשמש באנימציה ואפקטים מיוחדים.</span>
+          </li>
+          <li>
+            AI כמדיום אמנותי חדש
+            <span class="description-text">דיון פילוסופי על משמעות היצירה בעידן המודרני בעזרת AI.</span>
+          </li>
+          <li>
+            בניית מותג אישי עם AI
+            <span class="description-text">שימוש בכלים AI לבניית מותג אישי עקבי ומרתק.</span>
+          </li>
+          <li>
+            בינה מלאכותית ויצירתיות אנושית
+            <span class="description-text">ניתוח השפעת AI על יצירתיות אנושית ומקוריות.</span>
+          </li>
+        </ul>
+        <div class="fade-overlay"></div>
+      </div>
+    </div>
+
+    <div class="gallery" id="gallery"></div>
+
+    <div class="contact-info">
+      <div class="contact-details">
+        <a href="https://wa.me/97236030603" target="_blank">WhatsApp: +972 3 6030603</a>
+        <a href="mailto:Eyalizenman@gmail.com" class="email-link">Eyalizenman@gmail.com</a>
+      </div>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://wa.me/97236030603" alt="WhatsApp QR Code">
+    </div>
+  </div>
+
+  <script>
+    const mediaItems = [
+      { src: 'https://drive.google.com/file/d/1JryiegfkOlZrYyCgqsBRqwSX9ofRilDt/preview', type: 'image' },
+      { src: 'https://drive.google.com/file/d/12PfsA9e9g4Usho0qp90ebKlD0CIzh0n6/preview', type: 'image' },
+      { src: 'https://drive.google.com/file/d/1xxxu3mTA77fdCwNUAtDQqPlTpmIlYGuK/preview', type: 'image' },
+      { src: 'https://drive.google.com/file/d/1sTkXWptvQUiescKRTGUrIhuGjk1myv9a/preview', type: 'image' },
+        ];
+    
+    const gallery = document.getElementById('gallery');
+    
+    function getVideoId(url) {
+      const match = url.match(/\/d\/(.+)\/preview/);
+      return match ? match[1] : null;
+    }
+    
+    mediaItems.forEach(item => {
+      const videoId = getVideoId(item.src);
+      if (!videoId) return;
+      
+      const galleryItem = document.createElement('div');
+      galleryItem.className = 'gallery-item';
+      
+      const thumbnail = document.createElement('img');
+      thumbnail.src = `https://drive.google.com/thumbnail?id=${videoId}`;
+      thumbnail.alt = item.type === 'video' ? 'Video thumbnail' : 'Image';
+      galleryItem.appendChild(thumbnail);
+      
+      if (item.type === 'video') {
+        const videoContainer = document.createElement('div');
+        videoContainer.className = 'video-container';
+        galleryItem.appendChild(videoContainer);
+
+        galleryItem.addEventListener('click', () => {
+          if (!videoContainer.classList.contains('active')) {
+            videoContainer.classList.add('active');
+            thumbnail.style.opacity = '0';
+
+            const iframe = document.createElement('iframe');
+            iframe.src = `https://drive.google.com/file/d/${videoId}/preview`;
+            iframe.allow = "autoplay";
+            iframe.width = '100%';
+            iframe.height = '100%';
+            videoContainer.appendChild(iframe);
+
+            iframe.addEventListener('load', () => {
+              iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+            });
+          } else {
+            videoContainer.classList.remove('active');
+            thumbnail.style.opacity = '1';
+            videoContainer.innerHTML = '';
+          }
+        });
+      }
+      
+      gallery.appendChild(galleryItem);
+    });
+
+    // Fix for the scrolling list
+    const scrollBoxes = document.querySelectorAll('.scroll-box ul');
+    scrollBoxes.forEach(box => {
+      const boxHeight = box.offsetHeight;
+      const clonedItems = box.innerHTML;
+      box.innerHTML += clonedItems;
+      box.style.animationDuration = `${boxHeight / 15}s`;
+    });
+  </script>
+</body>
+</html>
