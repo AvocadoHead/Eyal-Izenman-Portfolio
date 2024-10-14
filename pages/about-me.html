@@ -60,27 +60,47 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     .gallery {
-      column-count: 3;
-      column-gap: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
       max-width: 1200px;
       width: 100%;
+      justify-content: center;
     }
     .gallery-item {
-      break-inside: avoid;
+      flex: 1 1 20%;
+      max-width: 200px;
       margin-bottom: 10px;
-      position: relative;
       overflow: hidden;
       border-radius: 8px;
       cursor: pointer;
       transition: transform 0.3s ease;
     }
-    .gallery-item:hover {
-      transform: scale(1.05);
-    }
     .gallery-item img {
       width: 100%;
       height: auto;
       display: block;
+      border-radius: 8px;
+    }
+    .gallery-item.video-item {
+      flex: 1 1 60%;
+      max-width: 800px;
+    }
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 aspect ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
       border-radius: 8px;
     }
     .contact-info {
@@ -114,13 +134,27 @@
       text-decoration: none;
     }
     @media (max-width: 1200px) {
-      .gallery {
-        column-count: 2;
+      .gallery-item {
+        flex: 1 1 30%;
+      }
+      .gallery-item.video-item {
+        flex: 1 1 100%;
       }
     }
     @media (max-width: 900px) {
-      .gallery {
-        column-count: 1;
+      .gallery-item {
+        flex: 1 1 45%;
+      }
+      .gallery-item.video-item {
+        flex: 1 1 100%;
+      }
+    }
+    @media (max-width: 600px) {
+      .gallery-item {
+        flex: 1 1 100%;
+      }
+      .gallery-item.video-item {
+        flex: 1 1 100%;
       }
       .description-container {
         flex-direction: column;
@@ -150,7 +184,7 @@
       <div class="gallery-item">
         <img src="https://drive.google.com/thumbnail?id=1pqnjBAZZiIeIjNJRja_FVWLx2UKH_hqV" alt="Artwork">
       </div>
-      <div class="gallery-item">
+      <div class="gallery-item video-item">
         <div class="video-wrapper">
           <iframe src="https://drive.google.com/file/d/1oxd-TNt20htwkscrbjTxzHt8u9wlZdvK/preview" allowfullscreen></iframe>
         </div>
