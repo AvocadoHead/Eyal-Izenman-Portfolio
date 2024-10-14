@@ -165,8 +165,8 @@ h2 {
   .carousel-item {
     width: 150px;
     height: 150px;
-    margin-left: -175px;
-    margin-top: -175px;
+    margin-left: -375px;
+    margin-top: -375px;
   }
 
   .carousel-item h3 {
