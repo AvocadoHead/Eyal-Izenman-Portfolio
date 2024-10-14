@@ -141,7 +141,7 @@ h2 {
 /* Mobile Styles for Smaller Screens */
 @media (max-width: 600px) {
   body {
-    transform: scale(0.7); /* Scale down the entire page to 70% */
+    transform: scale(0.2); /* Scale down the entire page to 70% */
     transform-origin: top center; /* Keep the scaling centered at the top */
     padding: 10px; /* Adjust padding for better fit */
   }
