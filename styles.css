@@ -207,7 +207,7 @@ h2 {
   }
 }
 
-/* General Desktop Adjustments */
+/* General Desktop Adjustments *
 @media (min-width: 600px) {
   .carousel-container {
     width: 45%;
@@ -219,4 +219,4 @@ h2 {
     margin-left: -107.5px;
     margin-top: -107.5px;
   }
-}
+}/
