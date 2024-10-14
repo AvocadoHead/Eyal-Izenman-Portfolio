@@ -139,7 +139,14 @@ h2 {
 
 @media (max-width: 600px) {
   .carousel-container {
-    height: 200px;
+    height: 300px;
+    .container {
+    transform: scale(0.2); /* Adjust the scale factor as needed */
+    transform-origin: top center; /* Keep the scaling centered */
+    width: 100%;
+    padding: 0 10px; /* Add some padding for better spacing */
+  }
+}
   }
   .carousel-item {
     width: 150px;
