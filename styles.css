@@ -221,7 +221,7 @@ h2 {
 /* General Desktop Adjustments */
 @media (min-width: 600px) {
   .carousel-container {
-    width: 25%;
+    width: 5%;
     height: 300px;
   }
 
