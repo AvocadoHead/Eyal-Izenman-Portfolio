@@ -143,7 +143,7 @@ h2 {
   }
 
   .container {
-    width: 100%;
+    width: 50%;
   }
 
   h1 {
@@ -157,16 +157,16 @@ h2 {
   }
 
   .carousel-container {
-    width: 95%;
-    height: 300px;
+    width: 50%;
+    height: 200px;
     margin: 10px auto;
   }
 
   .carousel-item {
     width: 150px;
     height: 150px;
-    margin-left: -75px;
-    margin-top: -75px;
+    margin-left: -175px;
+    margin-top: -175px;
   }
 
   .carousel-item h3 {
@@ -188,7 +188,7 @@ h2 {
   }
 
   .container {
-    width: 90%;
+    width: 60%;
     flex-direction: row;
     justify-content: space-around;
   }
@@ -199,7 +199,7 @@ h2 {
   }
 
   .carousel-container {
-    width: 60%;
+    width: 50%;
     height: 250px;
     margin: 0 auto;
   }
