@@ -1,4 +1,3 @@
-/* General Styles for Desktop and Larger Screens */
 body {
   font-family: 'Heebo', Arial, sans-serif;
   margin: 0;
@@ -65,7 +64,7 @@ h2 {
   margin-left: -100px;
   margin-top: 0px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
   text-align: center;
   transition: transform 0.5s ease, opacity 0.5s ease;
   cursor: pointer;
@@ -138,53 +137,62 @@ h2 {
   z-index: 10;
 }
 
-/* Mobile Styles for Smaller Screens */
 @media (max-width: 600px) {
-  html {
-    transform: scale(0.2); /* Scale down the whole page */
-    transform-origin: top left; /* Adjust the origin to keep the scaling controlled */
-    width: 100%;
-    height: 100%;
-    overflow: hidden; /* Prevent scrolling issues */
-  }
-
   body {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden; /* Ensure there's no overflow */
-  }
-}
-
-  .carousel-container {
-    height: 300px; /* Maintain the height, or adjust if needed */
+    padding: 10px;
   }
 
-  .carousel-item {
-    width: 150px; /* Adjust item size for better scaling */
-    height: 150px;
-    margin-left: -75px; /* Center the item accordingly */
-    margin-top: -75px;  /* Center the item accordingly */
+  .container {
+    width: 100%;
   }
 
   h1 {
-    font-size: 2em; /* Adjust heading size for better readability */
+    font-size: 1.8em;
+    margin-top: 30px;
   }
 
   h2 {
-    font-size: 1.1em; /* Adjust subheading size */
+    font-size: 1em;
+    margin-bottom: 15px;
+  }
+
+  .carousel-container {
+    width: 100%;
+    height: 250px;
+    margin: 20px auto;
+  }
+
+  .carousel {
+    margin-top: -125px;
+  }
+
+  .carousel-item {
+    width: 180px;
+    height: 180px;
+    margin-left: -90px;
+    margin-top: -90px;
+  }
+
+  .carousel-item h3 {
+    font-size: 12px;
   }
 
   .contact-info {
-    flex-direction: column; /* Stack contact info vertically on mobile */
-    gap: 10px; /* Adjust the gap for better spacing */
+    margin-top: -40px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .contact-details {
+    align-items: center;
   }
 
   .contact-info a {
-    font-size: 0.85em; /* Reduce the font size for contact info links */
+    font-size: 0.9em;
   }
 
   .contact-info img {
-    width: 35px;
-    height: 35px; /* Reduce the size of the contact info icons */
+    width: 40px;
+    height: 40px;
   }
 }
