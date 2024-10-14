@@ -1,3 +1,4 @@
+/* General Styles for Desktop and Larger Screens */
 body {
   font-family: 'Heebo', Arial, sans-serif;
   margin: 0;
@@ -64,7 +65,7 @@ h2 {
   margin-left: -100px;
   margin-top: 0px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   text-align: center;
   transition: transform 0.5s ease, opacity 0.5s ease;
   cursor: pointer;
@@ -137,30 +138,50 @@ h2 {
   z-index: 10;
 }
 
+/* Mobile Styles for Smaller Screens */
 @media (max-width: 600px) {
-  .carousel-container {
-    height: 300px;
-    .container {
-    transform: scale(0.2); /* Adjust the scale factor as needed */
-    transform-origin: top center; /* Keep the scaling centered */
+  body {
+    transform: scale(0.7); /* Scale down the entire page to 70% */
+    transform-origin: top center; /* Keep the scaling centered at the top */
+    padding: 10px; /* Adjust padding for better fit */
+  }
+
+  .container {
     width: 100%;
-    padding: 0 10px; /* Add some padding for better spacing */
+    max-width: 100%;
+    padding: 0; /* Remove extra padding to better fit the content */
   }
-}
+
+  .carousel-container {
+    height: 300px; /* Maintain the height, or adjust if needed */
   }
+
   .carousel-item {
-    width: 150px;
+    width: 150px; /* Adjust item size for better scaling */
     height: 150px;
-    margin-left: -75px;
-    margin-top: -75px;
+    margin-left: -75px; /* Center the item accordingly */
+    margin-top: -75px;  /* Center the item accordingly */
   }
+
   h1 {
-    font-size: 2em;
+    font-size: 2em; /* Adjust heading size for better readability */
   }
+
   h2 {
-    font-size: 1.1em;
+    font-size: 1.1em; /* Adjust subheading size */
   }
+
   .contact-info {
-    flex-direction: column;
+    flex-direction: column; /* Stack contact info vertically on mobile */
+    gap: 10px; /* Adjust the gap for better spacing */
+  }
+
+  .contact-info a {
+    font-size: 0.85em; /* Reduce the font size for contact info links */
+  }
+
+  .contact-info img {
+    width: 35px;
+    height: 35px; /* Reduce the size of the contact info icons */
   }
 }
