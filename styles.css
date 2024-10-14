@@ -143,7 +143,7 @@ h2 {
   }
 
   .container {
-    width: 100%;
+    width: 70%;
   }
 
   h1 {
@@ -221,14 +221,14 @@ h2 {
 /* General Desktop Adjustments */
 @media (min-width: 600px) {
   .carousel-container {
-    width: 5%;
-    height: 300px;
+    width: 40%;
+    height: 250px;
   }
 
   .carousel-item {
-    width: 215px;
-    height: 215px;
-    margin-left: -107.5px;
-    margin-top: -107.5px;
+    width: 150px;
+    height: 150px;
+    margin-left: -150px;
+    margin-top: -150px;
   }
 }
