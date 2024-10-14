@@ -1,0 +1,159 @@
+body {
+  font-family: 'Heebo', Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f4f4f4;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 2.5em;
+  font-weight: 700;
+  margin-top: 50px;
+  margin-bottom: 0;
+  color: #222;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.3em;
+  font-weight: 400;
+  color: #666;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.carousel-container {
+  perspective: 1000px;
+  perspective-origin: 50% -35%;
+  width: 45%;
+  max-width: 800px;
+  height: 300px;
+  position: relative;
+  margin: 40px auto;
+}
+
+.carousel {
+  margin-top: -230px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+
+.carousel-item {
+  position: absolute;
+  width: 215px;
+  height: 215px;
+  left: 50%;
+  top: 50%;
+  margin-left: -100px;
+  margin-top: 0px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  text-align: center;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  cursor: pointer;
+  backface-visibility: visible;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.carousel-item h3 {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  margin: 0;
+  padding: 5px 0;
+  font-size: 14px;
+}
+
+.contact-info {
+  margin-top: -80px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.contact-info a {
+  text-decoration: none;
+  color: #333;
+  font-size: 0.95em;
+  font-weight: 480;
+}
+
+.contact-info img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+.contact-info .email-link {
+  font-size: 0.95em;
+  color: #555;
+  text-decoration: none;
+}
+
+.carousel.transitioning {
+  transform: scale(1.05) translateY(-20px) translateX(20px);
+}
+
+.carousel-item.fade-out {
+  opacity: 0;
+}
+
+.carousel-item.focus {
+  transform: scale(1.1);
+  z-index: 10;
+}
+
+@media (max-width: 600px) {
+  .carousel-container {
+    height: 300px;
+  }
+  .carousel-item {
+    width: 150px;
+    height: 150px;
+    margin-left: -75px;
+    margin-top: -75px;
+  }
+  h1 {
+    font-size: 2em;
+  }
+  h2 {
+    font-size: 1.1em;
+  }
+  .contact-info {
+    flex-direction: column;
+  }
+}

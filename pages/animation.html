@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animation Gallery - Midjourney Style</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Heebo', Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      font-size: 2em;
+      color: #222;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .description-container {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-bottom: 40px;
+      max-width: 800px;
+      width: 100%;
+    }
+    .text-container {
+      flex: 1;
+      min-width: 300px;
+      max-width: 400px;
+    }
+    .text-container p {
+      margin: 10px 0;
+      line-height: 1.7;
+      text-align: justify;
+    }
+    .text-container p.hebrew {
+      text-align: right;
+    }
+    .image-container {
+      flex: 0 0 300px;
+    }
+    .image-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .gallery {
+      column-count: 4;
+      column-gap: 10px;
+      max-width: 1200px;
+      width: 100%;
+    }
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 10px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .gallery-item:hover {
+      transform: scale(1.05);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+    .gallery-item iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .contact-info {
+      margin-top: 40px;
+      text-align: center;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+    }
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+    }
+    .contact-info a {
+      text-decoration: none;
+      color: #333;
+      font-size: 0.95em;
+      font-weight: 480;
+    }
+    .contact-info img {
+      width: 45px;
+      height: 45px;
+      object-fit: contain;
+    }
+    .contact-info .email-link {
+      font-size: 0.95em;
+      color: #555;
+      text-decoration: none;
+    }
+    @media (max-width: 1200px) {
+      .gallery {
+        column-count: 3;
+      }
+    }
+    @media (max-width: 900px) {
+      .gallery {
+        column-count: 2;
+      }
+    }
+    @media (max-width: 600px) {
+      .gallery {
+        column-count: 1;
+      }
+      .description-container {
+        flex-direction: column;
+      }
+      .image-container {
+        order: -1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Animation | הנפשה</h1>
+    <div class="description-container">
+      <div class="text-container">
+        <p>My passion for animation lies in the beauty of capturing the essence of a moment and stretching it beyond its natural limits. I love the ability to slow down time, to explore every nuance, and to allow the smallest details to shine. Animation, for me, is about extending the feeling of now, and letting that feeling resonate deeply.</p>
+        <p class="hebrew">התשוקה שלי להנפשה מגיעה מגיעה מתוך היופי שביכולת למתוח רגע מעל לגבולותיו הארעיים, לתת ביטוי לכל ניואנס ופרט קטן. הנפשה הנפשה עבורי היא תחושת התמשכות של העכשיו והדהוד של התחושה הזו.
+
+.</p>
+      </div>
+      <div class="image-container">
+        <img src="https://drive.google.com/thumbnail?id=1M2Z84DU_jtEqG1doqmUO7gukAN9MnXws" alt="Animation Inspiration">
+      </div>
+    </div>
+    <div class="gallery" id="gallery"></div>
+    <div class="contact-info">
+      <div class="contact-details">
+        <a href="https://wa.me/97236030603" target="_blank">WhatsApp: +972 3 6030603</a>
+        <a href="mailto:Eyalizenman@gmail.com" class="email-link">Eyalizenman@gmail.com</a>
+      </div>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://wa.me/97236030603" alt="WhatsApp QR Code">
+    </div>
+  </div>
+  <script>
+    const mediaItems = [
+      { type: 'youtube', src: 'https://www.youtube.com/embed/yZ89TGox4pA' },
+      { type: 'iframe', src: 'https://drive.google.com/file/d/1Gw18guzbDMjD0Ckk6RMeYdZjxCPm1wWn/preview' },
+      { type: 'iframe', src: 'https://drive.google.com/file/d/1NyBJnf5W1UMhvuF9NZN8kmZNGlO1hdnR/preview' },
+      { type: 'iframe', src: 'https://drive.google.com/file/d/1Ar_xb6SthsNCYzFefxPlE7t4XxbCtSTF/preview' },
+      { type: 'iframe', src: 'https://drive.google.com/file/d/17jqjjAh2wcS7tWYa0x24ZYjgKlg58lxf/preview' },
+      { type: 'iframe', src: 'https://drive.google.com/file/d/1u0o1Swj7xEANZn8tB9fKSptLY6WoLDPs/preview' }
+    ];
+
+    const gallery = document.getElementById('gallery');
+
+    mediaItems.forEach(item => {
+      const galleryItem = document.createElement('div');
+      galleryItem.className = 'gallery-item';
+
+      if (item.type === 'image') {
+        const img = document.createElement('img');
+        img.src = item.src;
+        img.alt = 'Gallery Image';
+        galleryItem.appendChild(img);
+      } else if (item.type === 'iframe') {
+        const thumbnail = document.createElement('img');
+        const videoId = item.src.match(/\/d\/(.+)\/preview/);
+        if (videoId) {
+          thumbnail.src = `https://drive.google.com/thumbnail?id=${videoId[1]}`;
+          thumbnail.alt = 'Gallery Item';
+          galleryItem.appendChild(thumbnail);
+        }
+        
+        const iframe = document.createElement('iframe');
+        iframe.src = item.src;
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+        iframe.allowFullscreen = true;
+        galleryItem.appendChild(iframe);
+
+        galleryItem.addEventListener('click', () => {
+          galleryItem.classList.toggle('playing');
+          if (galleryItem.classList.contains('playing')) {
+            thumbnail.style.opacity = '0';
+          } else {
+            thumbnail.style.opacity = '1';
+            iframe.src = iframe.src; // Reset the video
+          }
+        });
+      } else if (item.type === 'youtube') {
+        const iframe = document.createElement('iframe');
+        iframe.src = item.src;
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+        iframe.allowFullscreen = true;
+        galleryItem.appendChild(iframe);
+      }
+
+      gallery.appendChild(galleryItem);
+    });
+  </script>
+</body>
+</html>

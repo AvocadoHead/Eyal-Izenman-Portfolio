@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - Shoshke Engelmaier</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Heebo', Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      font-size: 2.5em;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #222;
+      text-align: center;
+    }
+    .description-container {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      max-width: 800px;
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    .text-container {
+      flex: 1;
+      min-width: 300px;
+      max-width: 400px;
+    }
+    .text-container p {
+      margin: 10px 0;
+      line-height: 1.7;
+      text-align: justify;
+    }
+    .text-container p.hebrew {
+      text-align: right;
+    }
+    .image-container {
+      flex: 0 0 300px;
+    }
+    .image-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      width: 100%;
+      max-width: 1200px;
+      margin-top: 20px;
+    }
+    .gallery-item {
+      flex: 0 1 auto;
+      max-width: 100%;
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .gallery-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+    .thumbnail {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: opacity 0.3s ease;
+    }
+    .video-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+    }
+    .video-container.active {
+      display: block;
+    }
+    .contact-info {
+      margin-top: 40px;
+      text-align: center;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+    }
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+    }
+    .contact-info a {
+      text-decoration: none;
+      color: #333;
+      font-size: 0.95em;
+      font-weight: 480;
+    }
+    .contact-info img {
+      width: 45px;
+      height: 45px;
+      object-fit: contain;
+    }
+    .contact-info .email-link {
+      font-size: 0.95em;
+      color: #555;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Shoshke Engelmaier | שושקה (זאב) אנגלמאיר</h1>
+  <div class="description-container">
+    <div class="text-container">
+      <p>I began creating these animations with the desire to extend the moment that Shoshke had drawn, allowing for a sense of presence with those abducted in Gaza. Through animation, I aim to bring back the presence and provide a space where the viewer can share a moment with those who are held captive.</p>
+      <p class="hebrew">התחלתי ליצור את ההנפשות האלו מתוך רצון למשוך את הרגע ששושקה צייר, לכדי שהות עם החטופים בעזה. דרך ההנפשה, אני שואף להשיב את הנוכחות ולאפשר לצופה לחלוק רגע עם אלו שנמצאים בשבי.</p>
+    </div>
+    <div class="image-container">
+      <img src="https://drive.google.com/thumbnail?id=15xg5m4gL6K4mt2YfKlAfuKOPWSyxfVE3" alt="Design Passion">
+    </div>
+  </div>
+  <div class="gallery" id="gallery">
+    <!-- Gallery items will be loaded here -->
+  </div>
+  <div class="contact-info">
+    <div class="contact-details">
+      <a href="https://wa.me/97236030603" target="_blank">WhatsApp: +972 3 6030603</a>
+      <a href="mailto:Eyalizenman@gmail.com" class="email-link">Eyalizenman@gmail.com</a>
+    </div>
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://wa.me/97236030603" alt="WhatsApp QR Code">
+  </div>
+  <script>
+    const mediaItems = [
+         { src: 'https://drive.google.com/file/d/1Yo2z2X9kXna1Av8Seh-4dXWU7AMJ6Cme/preview' },
+      { src: 'https://drive.google.com/file/d/1QxjDiCObQAAtY3tHusZadCSgbrlEftK4/preview' },
+      { src: 'https://drive.google.com/file/d/12w5VwNU9YqwVu48BKbG4Zct9bYLmtqp8/preview' },
+      { src: 'https://drive.google.com/file/d/1dJS7gxq0m62jbkJFsktdeWgxR964mMIk/preview' },
+      { src: 'https://drive.google.com/file/d/1dt3NEf4GwuuKTvQyWq5ywxugOnonGOkv/preview' },
+      { src: 'https://drive.google.com/file/d/1YFQH6dXbiVKnls--yvXvKRvuAmTVc5Ui/preview' },
+      { src: 'https://drive.google.com/file/d/1AAgV2Shla_MHjPfnCJ52jQNDv9FKH7R5/preview' },
+      { src: 'https://drive.google.com/file/d/1ZYyYR9_b_tcGvJI-xbBz9kUFE-bGrk3P/preview' },
+      { src: 'https://drive.google.com/file/d/10jtprSl5bCgqbbEGwzJ_NP5c4m_juDPr/preview' },
+      { src: 'https://drive.google.com/file/d/1Haw3nwaPu3n0M24qSOfF_0wnb6iO6D69/preview' },
+      { src: 'https://drive.google.com/file/d/120QoDBaHOZNEHfiJ4NCsa_UBHrCshqdD/preview' },
+      { src: 'https://drive.google.com/file/d/1FelIZ-VFmekqLJ2OW8higv3i7rHk9mT2/preview' },
+      { src: 'https://drive.google.com/file/d/1_QBuaRKqNEN6luvs8q1LnBC0a1AsvkEV/preview' },
+      { src: 'https://drive.google.com/file/d/1-apq2XRkldS92p-Mymcy38HbcFA0gcZD/preview' },
+      { src: 'https://drive.google.com/file/d/1lc_nQAiEezZpFHZtVNeLIRpug2UxA7w0/preview' },
+      { src: 'https://drive.google.com/file/d/1MpU0mZkmPTniSIdC29sLBQID1Clq-NoR/preview' },
+      { src: 'https://drive.google.com/file/d/1G2ukgh7kQk9SKVHe2OvHeVoX5tPg2lj5/preview' },
+      { src: 'https://drive.google.com/file/d/1m3pmdr0skylnI2tA3yl6PddWykZML02k/preview' },
+      { src: 'https://drive.google.com/file/d/11Z0ogNzjQ95YptSXza1-8bqDLYvv0u4A/preview' },
+    ];
+
+    const gallery = document.getElementById('gallery');
+    
+    function getVideoId(url) {
+      const match = url.match(/\/d\/(.+)\/preview/);
+      return match ? match[1] : null;
+    }
+
+    mediaItems.forEach(item => {
+      const videoId = getVideoId(item.src);
+      if (!videoId) return;
+
+      const galleryItem = document.createElement('div');
+      galleryItem.className = 'gallery-item';
+
+      const thumbnail = document.createElement('img');
+      thumbnail.src = `https://drive.google.com/thumbnail?id=${videoId}`;
+      thumbnail.alt = 'Video thumbnail';
+      thumbnail.className = 'thumbnail';
+      galleryItem.appendChild(thumbnail);
+
+      const videoContainer = document.createElement('div');
+      videoContainer.className = 'video-container';
+      galleryItem.appendChild(videoContainer);
+
+      let videoPlaying = false;
+
+      galleryItem.addEventListener('click', () => {
+        if (!videoPlaying) {
+          videoPlaying = true;
+          videoContainer.classList.add('active');
+          thumbnail.style.opacity = '0';
+
+          const iframe = document.createElement('iframe');
+          iframe.src = `https://drive.google.com/file/d/${videoId}/preview`;
+          iframe.allow = "autoplay";
+          iframe.width = '100%';
+          iframe.height = '100%';
+          videoContainer.appendChild(iframe);
+
+          // Listen for messages from the iframe
+          window.addEventListener('message', function(event) {
+            if (event.origin !== "https://drive.google.com") return;
+            
+            if (event.data === 'videoEnded') {
+              videoPlaying = false;
+              videoContainer.classList.remove('active');
+              thumbnail.style.opacity = '1';
+              videoContainer.innerHTML = ''; // Remove the iframe
+            }
+          }, false);
+        }
+      });
+
+      gallery.appendChild(galleryItem);
+    });
+  </script>
+</body>
+</html>

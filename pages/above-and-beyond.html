@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Above and Beyond | מעל ומעבר</title>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Heebo', Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      font-size: 2.5em;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #222;
+      text-align: center;
+    }
+    .description-container {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      max-width: 800px;
+      width: 100%;
+      margin-bottom: 40px;
+    }
+    .text-container {
+      flex: 1;
+      min-width: 300px;
+      max-width: 400px;
+    }
+    .text-container p {
+      margin: 10px 0;
+      line-height: 1.7;
+      text-align: justify;
+    }
+    .text-container p.hebrew {
+      text-align: right;
+    }
+    .image-container {
+      flex: 0 0 300px;
+    }
+    .image-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      margin-top: 40px;
+      justify-content: center;
+    }
+    .button-container {
+      text-align: center;
+      max-width: 220px;
+      padding: 15px;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .button-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+      border-radius: 5px;
+      background-color: #0066cc;
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      font-size: 1em;
+    }
+    .button img {
+      width: 25px;
+      height: 25px;
+      margin-right: 10px;
+    }
+    .button:hover {
+      background-color: #004a99;
+    }
+    .description {
+      font-size: 0.9em;
+      color: #555;
+      margin-top: 10px;
+      text-align: center;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      width: 100%;
+      max-width: 1200px;
+      margin-top: 40px;
+    }
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .gallery-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+    .thumbnail {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: opacity 0.3s ease;
+    }
+    .contact-info {
+      margin-top: 40px;
+      text-align: center;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+    }
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+    }
+    .contact-info a {
+      text-decoration: none;
+      color: #333;
+      font-size: 0.95em;
+      font-weight: 480;
+    }
+    .contact-info img {
+      width: 45px;
+      height: 45px;
+      object-fit: contain;
+    }
+    .contact-info .email-link {
+      font-size: 0.95em;
+      color: #555;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Above and Beyond | מעל ומעבר</h1>
+  <div class="description-container">
+    <div class="text-container">
+      <p>I began my journey in the world of music and teaching, but decided to transition into the visual and technological world, which led me to new and interesting discoveries. Moving into video work and artificial intelligence brought about an exceptional professional development—today I am not only a designer and video editor, but also a teacher and lecturer in these fields. AI has turned me into a sought-after educator in digital design, motion graphics, and artificial intelligence, allowing me to share knowledge with audiences of all levels.</p>
+      <p class="hebrew">התחלתי את המסע שלי בעולם המוזיקה וההוראה, אבל החלטתי לעבור לעולם הוויזואלי והטכנולוגי, והשינוי הזה הוביל אותי לגילויים חדשים ומעניינים. המעבר לעבודה עם וידאו ובינה מלאכותית הביא איתו התפתחות מקצועית יוצאת דופן – היום אני לא רק מעצב ועורך וידאו, אלא גם מלמד ומרצה בתחומים הללו. הבינה המלאכותית הפכה אותי למורה מבוקש בתחומי עיצוב דיגיטלי, מושן גרפיקס ובינה מלאכותית, ואני מעביר ידע לקהלים מכל הרמות.</p>
+    </div>
+    <div class="image-container">
+      <img src="https://drive.google.com/thumbnail?id=1rO-rggUfDimdefDfiDZlfesuvyBIE_kq" alt="Design Passion">
+    </div>
+  </div>
+  <div class="buttons">
+    <div class="button-container">
+      <a href="https://chatgpt.com/g/g-cdr7kUIB2-the-video-storyteller" target="_blank" class="button">
+        <img src="https://drive.google.com/thumbnail?id=1iaPDLcOFbeZWZn51XSvTRWAUTaGlNdsF" alt="AI Video Generator GPT">
+        GPT לעיצוב וידאו
+      </a>
+      <div class="description">השתמשו ב-GPT שעיצבתי להנחיית מחוללי וידאו מבוססי בינה מלאכותית.</div>
+    </div>
+    <div class="button-container">
+      <a href="https://www.hollo.co.il/?section=9&customer=14908" target="_blank" class="button">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/t-shirt.png" alt="חנות חולצות">
+        חנות חולצות
+      </a>
+      <div class="description">חולצות בהשראת היצירה שלי - תוספת ייחודית למלתחה.</div>
+    </div>
+    <div class="button-container">
+      <a href="https://www.youtube.com/@OptopiaAI" target="_blank" class="button">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/youtube.png" alt="יוטיוב">
+        ערוץ יוטיוב
+      </a>
+      <div class="description">תכנים מקוריים ויצירתיים מבית היוצר שלי, עם בינה מלאכותית.</div>
+    </div>
+    <div class="button-container">
+      <a href="https://www.patreon.com/Delicacious" target="_blank" class="button">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/patreon.png" alt="פטראון">
+        עמוד Patreon
+      </a>
+      <div class="description">תמכו בי ואקח אתכם למסע אמנותי בלעדי.</div>
+    </div>
+    <div class="button-container">
+      <a href="https://buymeacoffee.com/Optopia" target="_blank" class="button">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/coffee-to-go.png" alt="Buy Me a Coffee">
+        Buy Me a Coffee
+      </a>
+      <div class="description">שתפו אותי בכוס קפה ונדבר על יצירה.</div>
