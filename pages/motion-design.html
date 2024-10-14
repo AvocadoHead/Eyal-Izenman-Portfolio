@@ -180,8 +180,8 @@
     <h1>Motion Design | עיצוב תנועה</h1>
     <div class="description-container">
       <div class="text-container">
-        <p>I began creating these animations with the desire to extend the moment that was drawn, allowing for a sense of presence with those abducted in Gaza. Through animation, I aim to bring back the presence and provide a space where the viewer can share a moment with those who are held captive.</p>
-        <p class="hebrew">התחלתי ליצור את ההנפשות האלו מתוך רצון למשוך את הרגע שצייר, לכדי שהות עם החטופים בעזה. דרך הנפשה, אני שואף להשיב את הנוכחות ולאפשר לצופה לחלוק רגע עם אלו שנמצאים בשבי.</p>
+        <p>Motion design is a fundamental element for any motion graphics artist. I find a deep interest in mastering the classic principles of motion animation, often immersing myself in the nuances that make up subtle movements.</p>
+        <p class="hebrew">עיצוב תנועה הוא מאבות המזון של האפטריסט המצוי, אני מוצא ענין עמוק בשימוש מיטבי ביכולות של הנפשת תנועה קלאסית ומוצא את עצמי שוקע בקלות בניואנסים שמרכיבים תנועות מעודנות.</p>
       </div>
       <div class="image-container">
         <img src="https://drive.google.com/thumbnail?id=1Uf0Wza_h-qsoE1kZHT1QRUK13mcsqSa5" alt="Design Passion">
@@ -261,15 +261,6 @@
         iframe.allowFullscreen = true;
         iframe.allow = "autoplay";
         videoWrapper.appendChild(iframe);
-
-        // Listen for messages from the iframe
-        window.addEventListener('message', function(event) {
-          if (event.origin !== "https://drive.google.com") return;
-          
-          if (event.data === 'videoEnded') {
-            closeVideo();
-          }
-        }, false);
       });
 
       gallery.appendChild(galleryItem);
