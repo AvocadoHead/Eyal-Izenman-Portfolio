@@ -157,16 +157,16 @@ h2 {
   }
 
   .carousel-container {
-    width: 95%;
+    width: 70%;
     height: 300px;
-    margin: 10px auto;
+    margin: 5px auto;
   }
 
   .carousel-item {
     width: 150px;
     height: 150px;
-     margin-left: -160px;
-    margin-top: -160px;
+     margin-left: -180px;
+    margin-top: -180px;
   }
 
   .carousel-item h3 {
@@ -188,7 +188,7 @@ h2 {
   }
 
   .container {
-    width: 90%;
+    width: 75%;
     flex-direction: row;
     justify-content: space-around;
   }
