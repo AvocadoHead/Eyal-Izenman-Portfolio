@@ -1,219 +1,96 @@
-/* General Styles for Desktop and Larger Screens */
-body {
-  font-family: 'Heebo', Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  background-color: #f4f4f4;
-  color: #333;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: 100vh;
-}
-
-.container {
-  max-width: 1200px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-h1 {
-  font-size: 2.5em;
-  font-weight: 700;
-  margin-top: 50px;
-  margin-bottom: 0;
-  color: #222;
-  text-align: center;
-}
-
-h2 {
-  font-size: 1.3em;
-  font-weight: 400;
-  color: #666;
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
-
-.carousel-container {
-  perspective: 1000px;
-  perspective-origin: 50% -35%;
-  width: 45%;
-  max-width: 800px;
-  height: 300px;
-  position: relative;
-  margin: 40px auto;
-}
-
-.carousel {
-  margin-top: -230px;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  transform-style: preserve-3d;
-  transition: transform 0.5s ease;
-}
-
-.carousel-item {
-  position: absolute;
-  width: 215px;
-  height: 215px;
-  left: 50%;
-  top: 50%;
-  margin-left: -100px;
-  margin-top: 0px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  text-align: center;
-  transition: transform 0.5s ease, opacity 0.5s ease;
-  cursor: pointer;
-  backface-visibility: visible;
-}
-
-.carousel-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.carousel-item h3 {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: white;
-  margin: 0;
-  padding: 5px 0;
-  font-size: 14px;
-}
-
-.contact-info {
-  margin-top: -80px;
-  text-align: center;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 20px;
-}
-
-.contact-details {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 5px;
-}
-
-.contact-info a {
-  text-decoration: none;
-  color: #333;
-  font-size: 0.95em;
-  font-weight: 480;
-}
-
-.contact-info img {
-  width: 45px;
-  height: 45px;
-  object-fit: contain;
-}
-
-.contact-info .email-link {
-  font-size: 0.95em;
-  color: #555;
-  text-decoration: none;
-}
-
-.carousel.transitioning {
-  transform: scale(1.05) translateY(-20px) translateX(20px);
-}
-
-.carousel-item.fade-out {
-  opacity: 0;
-}
-
-.carousel-item.focus {
-  transform: scale(1.1);
-  z-index: 10;
-}
-
-/* Mobile Styles for Smaller Screens */
-@media (max-width: 600px) {
-  /* Scale down the whole composition */
-  html, body {
-    transform: scale(0.7); /* Scale down to 70% */
-    transform-origin: top center; /* Keep scaling centered from the top */
-    width: 100%;
-    overflow-x: hidden; /* Prevent horizontal overflow */
+/* General Mobile Adjustments (Portrait) */
+@media (max-width: 600px) and (orientation: portrait) {
+  body {
+    padding: 10px;
   }
 
-  /* Container settings */
   .container {
     width: 100%;
-    max-width: 100%;
-    padding: 0; /* Remove extra padding */
-    margin-top: 20px; /* Add some margin to maintain spacing */
   }
 
-  /* Carousel container settings */
-  .carousel-container {
-    width: 80vw; /* Make carousel container narrower for mobile */
-    max-width: 100%;
-    height: 200px; /* Adjust height for smaller screens */
-    margin: 20px auto; /* Center the carousel container */
-  }
-
-  /* Carousel item settings */
-  .carousel {
-    margin-top: -180px; /* Adjust positioning relative to the container */
-  }
-
-  .carousel-item {
-    width: 120px; /* Reduce item width */
-    height: 120px; /* Reduce item height */
-    margin-left: -60px; /* Center the items */
-    margin-top: -60px; /* Center the items */
-    transition: transform 0.5s ease, opacity 0.5s ease; /* Keep the transition smooth */
-  }
-
-  /* Adjust carousel item image settings */
-  .carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Make sure the images maintain aspect ratio */
-    border-radius: 10px;
-  }
-
-  /* Headings for mobile */
   h1 {
-    font-size: 2em; /* Adjust heading size for mobile */
-    margin-top: 20px; /* Reduce margin for better fit */
-  }
-
-  h2 {
-    font-size: 1em; /* Adjust subheading */
-    margin-top: 10px;
-  }
-
-  /* Contact information adjustments */
-  .contact-info {
-    flex-direction: column; /* Stack vertically for better readability */
-    gap: 10px;
+    font-size: 1.8em;
     margin-top: 20px;
   }
 
-  .contact-info a {
-    font-size: 0.9em; /* Adjust font size for contact links */
+  h2 {
+    font-size: 1em;
+    margin-bottom: 10px;
   }
 
-  .contact-info img {
-    width: 30px; /* Reduce the size of the contact icons */
-    height: 30px;
+  .carousel-container {
+    width: 95%;
+    height: 300px;
+    margin: 10px auto;
   }
 
-  /* Ensure proper touch interaction */
-  .carousel {
-    touch-action: pan-y; /* Ensure touch events are smooth for carousel interaction */
+  .carousel-item {
+    width: 150px;
+    height: 150px;
+    margin-left: -75px;
+    margin-top: -75px;
+  }
+
+  .carousel-item h3 {
+    font-size: 10px;
+  }
+
+  .contact-info {
+    margin-top: 20px;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* Mobile Landscape Mode */
+@media (max-width: 600px) and (orientation: landscape) {
+  body {
+    padding: 5px;
+    flex-direction: row;
+  }
+
+  .container {
+    width: 90%;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  h1 {
+    font-size: 1.5em;
+    margin-top: 10px;
+  }
+
+  .carousel-container {
+    width: 60%;
+    height: 250px;
+    margin: 0 auto;
+  }
+
+  .carousel-item {
+    width: 120px;
+    height: 120px;
+    margin-left: -60px;
+    margin-top: -60px;
+  }
+
+  .contact-info {
+    margin-top: 10px;
+    flex-direction: row;
+    gap: 15px;
+  }
+}
+
+/* General Desktop Adjustments */
+@media (min-width: 600px) {
+  .carousel-container {
+    width: 45%;
+    height: 300px;
+  }
+
+  .carousel-item {
+    width: 215px;
+    height: 215px;
+    margin-left: -107.5px;
+    margin-top: -107.5px;
   }
 }
