@@ -143,7 +143,7 @@ h2 {
   }
 
   .container {
-    width: 70%;
+    width: 100%;
   }
 
   h1 {
@@ -157,16 +157,16 @@ h2 {
   }
 
   .carousel-container {
-    width: 70%;
+    width: 95%;
     height: 300px;
-    margin: 5px auto;
+    margin: 10px auto;
   }
 
   .carousel-item {
     width: 150px;
     height: 150px;
-     margin-left: -180px;
-    margin-top: -180px;
+    margin-left: -75px;
+    margin-top: -75px;
   }
 
   .carousel-item h3 {
@@ -188,7 +188,7 @@ h2 {
   }
 
   .container {
-    width: 75%;
+    width: 90%;
     flex-direction: row;
     justify-content: space-around;
   }
@@ -221,14 +221,14 @@ h2 {
 /* General Desktop Adjustments */
 @media (min-width: 600px) {
   .carousel-container {
-    width: 40%;
-    height: 250px;
+    width: 45%;
+    height: 300px;
   }
 
   .carousel-item {
-    width: 150px;
-    height: 150px;
-    margin-left: -150px;
-    margin-top: -150px;
+    width: 215px;
+    height: 215px;
+    margin-left: -107.5px;
+    margin-top: -107.5px;
   }
 }
