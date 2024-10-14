@@ -135,36 +135,44 @@ h2 {
 .carousel-item.focus {
   transform: scale(1.1);
   z-index: 10;
-}/* General Mobile Adjustments (Portrait) */
+}
+/* General Mobile Adjustments (Portrait) */
 @media (max-width: 600px) and (orientation: portrait) {
   body {
     padding: 10px;
   }
+
   .container {
-    width: 95%;
+    width: 100%;
   }
+
   h1 {
     font-size: 1.8em;
     margin-top: 20px;
   }
+
   h2 {
     font-size: 1em;
     margin-bottom: 10px;
   }
+
   .carousel-container {
     width: 95%;
     height: 300px;
     margin: 10px auto;
   }
+
   .carousel-item {
     width: 150px;
     height: 150px;
     margin-left: -75px;
     margin-top: -75px;
   }
+
   .carousel-item h3 {
     font-size: 10px;
   }
+
   .contact-info {
     margin-top: 20px;
     flex-direction: column;
