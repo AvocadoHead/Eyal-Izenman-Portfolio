@@ -136,3 +136,105 @@ h2 {
   transform: scale(1.1);
   z-index: 10;
 }
+// In script.js
+
+const quotes = [
+  "קוֹלֵט הֵדִים, מְתָאֵר אֲוִיר",
+  "הַחַיִּים כְּהֶתְקֵף חֲרָדָה, קַל וּמִתְמַשֵּׁךְ",
+  "הָאֱמֶת לְעִתִּים מֵתָה פִיזִית, אֲבָל הִיא מֵטָאפִיזִית",
+  // Add more quotes as needed
+];
+
+const quoteContainer = document.getElementById('floating-quotes-container');
+const MAX_QUOTES = 3; // Maximum number of quotes visible at once
+
+function createFloatingQuote() {
+  if (quoteContainer.children.length >= MAX_QUOTES) {
+    return; // Don't create new quotes if we've reached the maximum
+  }
+
+  const quote = document.createElement('div');
+  quote.className = 'floating-quote';
+  quote.textContent = quotes[Math.floor(Math.random() * quotes.length)];
+  
+  const startY = Math.random() * (window.innerHeight - 100); // Random vertical position
+  const duration = 15000 + Math.random() * 10000; // 15-25 seconds for the entire animation
+  
+  quote.style.top = `${startY}px`;
+  quote.style.animationDuration = `${duration}ms`;
+  
+  quoteContainer.appendChild(quote);
+  
+  // Fade in
+  setTimeout(() => {
+    quote.classList.add('visible');
+  }, 100);
+
+  // Unblur after 1/3 of the duration
+  setTimeout(() => {
+    quote.classList.add('unblurred');
+  }, duration / 3);
+
+  // Blur again after 2/3 of the duration
+  setTimeout(() => {
+    quote.classList.remove('unblurred');
+  }, (duration / 3) * 2);
+  
+  quote.style.animation = `floatAnimation ${duration}ms linear`;
+  
+  quote.addEventListener('animationend', () => {
+    quoteContainer.removeChild(quote);
+  });
+}
+
+function startFloatingQuotes() {
+  createFloatingQuote(); // Create the first quote immediately
+  setInterval(createFloatingQuote, 5000); // Try to create a new quote every 5 seconds
+}
+
+// Start the floating quotes when the page loads
+window.addEventListener('load', startFloatingQuotes);
+
+// In styles.css
+
+#floating-quotes-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.floating-quote {
+  position: absolute;
+  font-size: 3rem;
+  color: rgba(255, 255, 255, 0.7);
+  opacity: 0;
+  filter: blur(5px);
+  transition: opacity 1s, filter 1s;
+  white-space: nowrap;
+  direction: rtl;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.floating-quote.visible {
+  opacity: 1;
+}
+
+.floating-quote.unblurred {
+  filter: blur(0);
+}
+
+@keyframes floatAnimation {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+/* General
