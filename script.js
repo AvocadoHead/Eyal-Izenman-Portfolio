@@ -25,8 +25,8 @@ let isTouching = false;
 let touchStartX;
 let touchStartY;
 let touchStartTime;
-const TAP_THRESHOLD = 10; // pixels
-const TAP_TIMEOUT = 200; // milliseconds
+const TAP_THRESHOLD = 10;
+const TAP_TIMEOUT = 200;
 
 function createCarouselItems() {
   items.forEach((item, i) => {
@@ -37,28 +37,21 @@ function createCarouselItems() {
       <h3>${item.title}</h3>
     `;
     element.style.transform = `rotateY(${i * angle}deg) translateZ(300px)`;
-
     element.addEventListener('click', (e) => {
       e.preventDefault();
       handleItemClick(element, item);
     });
-
     carousel.appendChild(element);
   });
 }
 
 function handleItemClick(clickedItem, itemData) {
   const carouselItems = document.querySelectorAll('.carousel-item');
-  
   carousel.classList.add('transitioning');
   clickedItem.classList.add('focus');
-  
   carouselItems.forEach(item => {
-    if (item !== clickedItem) {
-      item.classList.add('fade-out');
-    }
+    if (item !== clickedItem) item.classList.add('fade-out');
   });
-
   setTimeout(() => {
     window.location.href = itemData.link;
   }, 500);
@@ -85,7 +78,6 @@ function updateCarousel() {
     const zTranslate = 300 + 50 * Math.cos(itemAngle * Math.PI / 180);
     const opacity = 1 + 0.7 * Math.cos(itemAngle * Math.PI / 180);
     const scale = 0.8 + 0.2 * Math.cos(itemAngle * Math.PI / 180);
-    
     item.style.transform = `rotateY(${i * angle}deg) translateZ(${zTranslate}px) scale(${scale})`;
     item.style.opacity = opacity;
   }
@@ -97,15 +89,12 @@ function handleMouseMove(e) {
   if (!carouselRect) {
     carouselRect = carousel.getBoundingClientRect();
   }
-  
   const mouseX = e.clientX - carouselRect.left;
-  
   if (lastMouseX !== undefined) {
     const mouseDelta = mouseX - lastMouseX;
     velocity = -mouseDelta * 0.3;
     targetAngle += mouseDelta * 0.3;
   }
-  
   lastMouseX = mouseX;
 }
 
@@ -119,35 +108,27 @@ function handleTouchStart(e) {
 
 function handleTouchMove(e) {
   if (!isTouching) return;
-
   const touchX = e.touches[0].clientX;
   const touchY = e.touches[0].clientY;
-  
   if (Math.abs(touchY - touchStartY) > Math.abs(touchX - touchStartX)) {
     return;
   }
-  
   e.preventDefault();
-  
   const touchDelta = touchX - touchStartX;
   velocity = -touchDelta * 0.3;
   targetAngle += touchDelta * 0.3;
-  
   touchStartX = touchX;
 }
 
 function handleTouchEnd(e) {
   if (!isTouching) return;
-
   const touchEndX = e.changedTouches[0].clientX;
   const touchEndY = e.changedTouches[0].clientY;
   const touchEndTime = Date.now();
-
   const touchDuration = touchEndTime - touchStartTime;
   const touchDistance = Math.sqrt(
     Math.pow(touchEndX - touchStartX, 2) + Math.pow(touchEndY - touchStartY, 2)
   );
-
   if (touchDuration < TAP_TIMEOUT && touchDistance < TAP_THRESHOLD) {
     const tappedItem = document.elementFromPoint(touchEndX, touchEndY);
     const carouselItem = tappedItem.closest('.carousel-item');
@@ -158,7 +139,6 @@ function handleTouchEnd(e) {
       }
     }
   }
-
   isTouching = false;
 }
 
@@ -178,5 +158,59 @@ carousel.addEventListener('touchstart', handleTouchStart);
 carousel.addEventListener('touchmove', handleTouchMove);
 carousel.addEventListener('touchend', handleTouchEnd);
 
-createCarouselItems();
-updateCarousel();
+// Floating Quotes functionality
+const quotes = [
+  "קוֹלֵט הֵדִים, מְתָאֵר אֲוִיר",
+  "הַחַיִּים כְּהֶתְקֵף חֲרָדָה, קַל וּמִתְמַשֵּׁךְ",
+  "הָאֱמֶת לְעִתִּים מֵתָה פִיזִית, אֲבָל הִיא מֵטָאפִיזִית",
+  // Add more quotes as needed
+];
+
+const quoteContainer = document.getElementById('floating-quotes-container');
+
+function createFloatingQuote() {
+  const quote = document.createElement('div');
+  quote.className = 'floating-quote';
+  quote.textContent = quotes[Math.floor(Math.random() * quotes.length)];
+  
+  const startX = Math.random() * window.innerWidth;
+  const duration = 8000; // 8 seconds for the entire animation
+  
+  quote.style.left = `${startX}px`;
+  quote.style.animationDuration = `${duration}ms`;
+  
+  quoteContainer.appendChild(quote);
+  
+  // Fade in
+  setTimeout(() => {
+    quote.classList.add('visible');
+  }, 100);
+
+  // Unblur after 1.5 seconds
+  setTimeout(() => {
+    quote.classList.add('unblurred');
+  }, 1500);
+
+  // Blur again after 5.5 seconds (3 seconds of clear visibility)
+  setTimeout(() => {
+    quote.classList.remove('unblurred');
+  }, 5500);
+  
+  quote.style.animation = `floatAnimation ${duration}ms linear`;
+  
+  quote.addEventListener('animationend', () => {
+    quoteContainer.removeChild(quote);
+  });
+}
+
+function startFloatingQuotes() {
+  createFloatingQuote(); // Create the first quote immediately
+  setInterval(createFloatingQuote, 15000); // Create a new quote every 15 seconds
+}
+
+// Start the carousel and floating quotes when the page loads
+window.addEventListener('load', () => {
+  createCarouselItems();
+  updateCarousel();
+  startFloatingQuotes();
+});
