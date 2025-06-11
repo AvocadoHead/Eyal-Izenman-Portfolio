@@ -152,16 +152,16 @@
   </div>
   <script>
     const mediaItems = [
-  { type: 'drive', id: '1MAFHatDOujK8OIAEtaR3j3DlzLB5EOSe' },
-  { type: 'image', src: 'https://drive.google.com/thumbnail?id=1rmLvhG6jv9OPe-vuvQLXDCld0rb6RZeV' },
-  { type: 'image', src: 'https://drive.google.com/thumbnail?id=1_bOyJyNF9t1KUrQjmBYYwdMRnydRffES' },
-  { type: 'image', src: 'https://drive.google.com/thumbnail?id=1kU4i02LLeeT6FeFKlM-tF5OtomtdZ6j8' },
-  { type: 'image', src: 'https://drive.google.com/thumbnail?id=1n5uJ3wALzi_jrwisqr-lMDZFUwcSVhA5' },
-  { type: 'image', src: 'https://drive.google.com/thumbnail?id=1MPD99XHgDLQfzi_fZekLQdxHD2GCT9v_' },
-  { type: 'image', src: 'https://drive.google.com/thumbnail?id=1ecp_KhFvC_bT9e3LiYu1UWbw5WMHQqqB' },
-  { type: 'image', src: 'https://drive.google.com/thumbnail?id=1MOo5-Q4teGukZCHa-akFC0wwROcFmKRQ' },
-  { type: 'image', src: 'https://drive.google.com/thumbnail?id=1yzGOur1iILREO4JDlh7s5tXAqnCU-hWF' }
-];
+      { type: 'drive', id: '1MAFHatDOujK8OIAEtaR3j3DlzLB5EOSe' },
+      { type: 'image', src: 'https://drive.google.com/thumbnail?id=1rmLvhG6jv9OPe-vuvQLXDCld0rb6RZeV' },
+      { type: 'image', src: 'https://drive.google.com/thumbnail?id=1_bOyJyNF9t1KUrQjmBYYwdMRnydRffES' },
+      { type: 'image', src: 'https://drive.google.com/thumbnail?id=1kU4i02LLeeT6FeFKlM-tF5OtomtdZ6j8' },
+      { type: 'image', src: 'https://drive.google.com/thumbnail?id=1n5uJ3wALzi_jrwisqr-lMDZFUwcSVhA5' },
+      { type: 'image', src: 'https://drive.google.com/thumbnail?id=1MPD99XHgDLQfzi_fZekLQdxHD2GCT9v_' },
+      { type: 'image', src: 'https://drive.google.com/thumbnail?id=1ecp_KhFvC_bT9e3LiYu1UWbw5WMHQqqB' },
+      { type: 'image', src: 'https://drive.google.com/thumbnail?id=1MOo5-Q4teGukZCHa-akFC0wwROcFmKRQ' },
+      { type: 'image', src: 'https://drive.google.com/thumbnail?id=1yzGOur1iILREO4JDlh7s5tXAqnCU-hWF' }
+    ];
 
     const gallery = document.getElementById('gallery');
 
@@ -169,32 +169,35 @@
       const galleryItem = document.createElement('div');
       galleryItem.className = 'gallery-item';
 
-      const thumbnail = document.createElement('img');
-      thumbnail.className = 'thumbnail';
-      thumbnail.alt = 'Gallery thumbnail';
-      thumbnail.src = `https://drive.google.com/thumbnail?id=${item.id}`;
-      galleryItem.appendChild(thumbnail);
+      if (item.type === 'image') {
+        const img = document.createElement('img');
+        img.src = item.src;
+        img.alt = 'Gallery Image';
+        img.className = 'thumbnail';
+        galleryItem.appendChild(img);
+      } else if (item.type === 'drive') {
+        const thumbnail = document.createElement('img');
+        thumbnail.src = `https://drive.google.com/thumbnail?id=${item.id}`;
+        thumbnail.alt = 'Video thumbnail';
+        thumbnail.className = 'thumbnail';
+        galleryItem.appendChild(thumbnail);
 
-      const videoContainer = document.createElement('div');
-      videoContainer.className = 'video-container';
-      galleryItem.appendChild(videoContainer);
+        const videoContainer = document.createElement('div');
+        videoContainer.className = 'video-container';
+        galleryItem.appendChild(videoContainer);
 
-      let videoPlaying = false;
-
-      galleryItem.addEventListener('click', () => {
-        if (!videoPlaying) {
-          videoPlaying = true;
+        galleryItem.addEventListener('click', () => {
           videoContainer.classList.add('active');
           thumbnail.style.opacity = '0';
 
           const iframe = document.createElement('iframe');
           iframe.src = `https://drive.google.com/file/d/${item.id}/preview`;
-          iframe.allow = "autoplay";
+          iframe.allow = 'autoplay';
           iframe.width = '100%';
           iframe.height = '100%';
           videoContainer.appendChild(iframe);
-        }
-      });
+        });
+      }
 
       gallery.appendChild(galleryItem);
     });
