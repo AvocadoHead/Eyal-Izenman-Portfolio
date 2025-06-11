@@ -60,15 +60,14 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     .gallery {
-      column-count: 4;
-      column-gap: 10px;
-      max-width: 1200px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 10px;
       width: 100%;
     }
     .gallery-item {
-      break-inside: avoid;
-      margin-bottom: 10px;
       position: relative;
+      aspect-ratio: 16 / 9;
       overflow: hidden;
       border-radius: 8px;
       cursor: pointer;
@@ -77,24 +76,23 @@
     .gallery-item:hover {
       transform: scale(1.05);
     }
-    .gallery-item img {
+    .thumbnail {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
       display: block;
-      border-radius: 8px;
+      transition: opacity 0.3s ease;
     }
-    .gallery-item iframe {
+    .video-container {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      border: none;
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      display: none;
     }
-    .gallery-item.playing iframe {
-      opacity: 1;
+    .video-container.active {
+      display: block;
     }
     .contact-info {
       margin-top: 40px;
@@ -121,25 +119,7 @@
       height: 45px;
       object-fit: contain;
     }
-    .contact-info .email-link {
-      font-size: 0.95em;
-      color: #555;
-      text-decoration: none;
-    }
-    @media (max-width: 1200px) {
-      .gallery {
-        column-count: 3;
-      }
-    }
-    @media (max-width: 900px) {
-      .gallery {
-        column-count: 2;
-      }
-    }
     @media (max-width: 600px) {
-      .gallery {
-        column-count: 1;
-      }
       .description-container {
         flex-direction: column;
       }
@@ -155,7 +135,7 @@
     <div class="description-container">
       <div class="text-container">
         <p>I create visual art in a classicistic manner, drawing inspiration from traditional techniques and aesthetics. My series "Drawing Inspiration" adopts the appearance of watercolors, while conveying a deep exploration of artistic themes. Through delicate strokes and subtle hues, I evoke timeless emotions and blend classical beauty with modern artistic insight.</p>
-        <p class="hebrew">אני יוצר אמנות חזותית בסגנון קלאסיציסטי, בהשראת טכניקות ואסתטטיקה מסורתיות. הסדרה שלי "Drawing Inspiration" מאופיינת במראה המזכיר צבעי מים, תוך העברת חקירה מעמיקה של נושאים אמנותיים. באמצעות משיכות עדינות וגוונים רכים, אני מעורר רגשות נצחיים ומשלב יופי קלאסי עם תובנה אמנותית עכשווית.</p>
+        <p class="hebrew">אני יוצר אמנות חזותית בסגנון קלאסיציסטי, בהשראת טכניקות ואסתטטיקה מסורתיות. הסדרה שלי "Drawing Inspiration" מאופיינת במרא המזכיר צבעי מים, תוך העברת חקירה עמוקה של נושאים אמנותיים. באמצעות משיכות עדינות וגוונים רכים, אני מעורר רגשות נצחיים ומשלב יופי קלאסי עם חדר אמנותית עכשווית.</p>
       </div>
       <div class="image-container">
         <img src="https://drive.google.com/thumbnail?id=1YbayXi_u8lY8bxjuo2VjFwDOCrGnquIh" alt="Drawing Inspiration">
@@ -172,35 +152,16 @@
   </div>
   <script>
     const mediaItems = [
-      { type: 'iframe', src: 'https://drive.google.com/thumbnail?id=1PuKBKqYpCXLxm1i9mVq0a0AuZ5Jc6lji' },
-      { type: 'image', src: 'https://drive.google.com/thumbnail?id=1rmLvhG6jv9OPe-vuvQLXDCld0rb6RZeV' },
-      { type: 'image', src: 'https://drive.google.com/thumbnail?id=1_bOyJyNF9t1KUrQjmBYYwdMRnydRffES' },
-      { type: 'image', src: 'https://drive.google.com/thumbnail?id=1kU4i02LLeeT6FeFKlM-tF5OtomtdZ6j8' },
-      { type: 'image', src: 'https://drive.google.com/thumbnail?id=1n5uJ3wALzi_jrwisqr-lMDZFUwcSVhA5' },
-      { type: 'image', src: 'https://drive.google.com/thumbnail?id=1MPD99XHgDLQfzi_fZekLQdxHD2GCT9v_' },
-      { type: 'image', src: 'https://drive.google.com/thumbnail?id=1ecp_KhFvC_bT9e3LiYu1UWbw5WMHQqqB' },
-      { type: 'image', src: 'https://drive.google.com/thumbnail?id=1MOo5-Q4teGukZCHa-akFC0wwROcFmKRQ' },
-      { type: 'image', src: 'https://drive.google.com/thumbnail?id=1yzGOur1iILREO4JDlh7s5tXAqnCU-hWF' },
-      { type: 'iframe', src: 'https://drive.google.com/file/d/1MAFHatDOujK8OIAEtaR3j3DlzLB5EOSe/preview' },
-      { type: 'iframe', src: 'https://drive.google.com/file/d/19kgfr-V0luci-4nkGrGxGi4VZT7UO6jO/preview' },
-      { type: 'iframe', src: 'https://drive.google.com/file/d/1bB9QDn26NuRgcDx0RrTCVJLiuxtMvx-V/preview' },
-      { type: 'iframe', src: 'https://drive.google.com/file/d/1dXTg4xBavn4RhCmRXFbwf_Q34LM06XzN/preview' },
-      { type: 'iframe', src: 'https://drive.google.com/file/d/1mudGAanxB32t5My26gRLMC_ieheogfFK/preview' },
-      { type: 'iframe', src: 'https://drive.google.com/file/d/1HaGmN2Lm3Lgz2xYakbsoXBMsT7r3YDA2/preview' },
-      { type: 'iframe', src: 'https://drive.google.com/file/d/1mU5udZUZFr2iHGAYsZhQNnbKFCwPV8vo/preview' },
-      { type: 'iframe', src: 'https://drive.google.com/file/d/1N-ehsWMk45BGHfmP6XHTDKumARWEbgmZ/preview' },
-      { type: 'iframe', src: 'https://drive.google.com/file/d/16QdlWf7RnbkZtRQDT5lZApL0rLu9zoFz/preview' },
-      { type: 'iframe', src: 'https://drive.google.com/file/d/1LrWAA7d5lQB8Z3Eug-zeA-1c_RkKJ3HE/preview' },
-      { type: 'iframe', src: 'https://drive.google.com/file/d/14ZwjFCltCD9PyedxgVLeotUIQj7QWwIW/preview' },
-      { type: 'iframe', src: 'https://drive.google.com/file/d/12CvZ154pg1NiatKB0KkUmz65kkR0FoGb/preview' },
-      { type: 'iframe', src: 'https://drive.google.com/file/d/1Q74ZFkt5ZWtGT5uKtHHVCnVBqX9_505Y/preview' },
-      { type: 'iframe', src: 'https://drive.google.com/file/d/1v3t7vPDlF9Fo4-iFRApM_FlZuoU40HSz/preview' },
-      { type: 'iframe', src: 'https://drive.google.com/file/d/1NKBda5BSW_MkuLSk7jgKfkHbnm1be7J7/preview' },
-      { type: 'iframe', src: 'https://drive.google.com/file/d/1vVT50-sjRzyxzsfjd71DkAedGbY3LiqU/preview' },
-      { type: 'iframe', src: 'https://drive.google.com/file/d/14T6vvQq9cTu0RMqi2FJjjdrjn9q9S1kJ/preview' },
-      { type: 'iframe', src: 'https://drive.google.com/file/d/1wUyzGmeWVUmxPJ1y_udaXk-x4PTs3wIs/preview' },
-      { type: 'iframe', src: 'https://drive.google.com/file/d/1KYpNReKxpEyTvZYIb90Kxs5eaygfTnz-/preview' }
-    ];
+  { type: 'drive', id: '1MAFHatDOujK8OIAEtaR3j3DlzLB5EOSe' },
+  { type: 'image', src: 'https://drive.google.com/thumbnail?id=1rmLvhG6jv9OPe-vuvQLXDCld0rb6RZeV' },
+  { type: 'image', src: 'https://drive.google.com/thumbnail?id=1_bOyJyNF9t1KUrQjmBYYwdMRnydRffES' },
+  { type: 'image', src: 'https://drive.google.com/thumbnail?id=1kU4i02LLeeT6FeFKlM-tF5OtomtdZ6j8' },
+  { type: 'image', src: 'https://drive.google.com/thumbnail?id=1n5uJ3wALzi_jrwisqr-lMDZFUwcSVhA5' },
+  { type: 'image', src: 'https://drive.google.com/thumbnail?id=1MPD99XHgDLQfzi_fZekLQdxHD2GCT9v_' },
+  { type: 'image', src: 'https://drive.google.com/thumbnail?id=1ecp_KhFvC_bT9e3LiYu1UWbw5WMHQqqB' },
+  { type: 'image', src: 'https://drive.google.com/thumbnail?id=1MOo5-Q4teGukZCHa-akFC0wwROcFmKRQ' },
+  { type: 'image', src: 'https://drive.google.com/thumbnail?id=1yzGOur1iILREO4JDlh7s5tXAqnCU-hWF' }
+];
 
     const gallery = document.getElementById('gallery');
 
@@ -208,35 +169,32 @@
       const galleryItem = document.createElement('div');
       galleryItem.className = 'gallery-item';
 
-      if (item.type === 'image') {
-        const img = document.createElement('img');
-        img.src = item.src;
-        img.alt = 'Gallery Image';
-        galleryItem.appendChild(img);
-      } else if (item.type === 'iframe') {
-        const thumbnail = document.createElement('img');
-        const videoId = item.src.match(/\/d\/(.+)\/preview/);
-        if (videoId) {
-          thumbnail.src = `https://drive.google.com/thumbnail?id=${videoId[1]}`;
-          thumbnail.alt = 'Gallery Item';
-          galleryItem.appendChild(thumbnail);
-        }
-        
-        const iframe = document.createElement('iframe');
-        iframe.src = item.src;
-        iframe.allow = "autoplay";
-        galleryItem.appendChild(iframe);
+      const thumbnail = document.createElement('img');
+      thumbnail.className = 'thumbnail';
+      thumbnail.alt = 'Gallery thumbnail';
+      thumbnail.src = `https://drive.google.com/thumbnail?id=${item.id}`;
+      galleryItem.appendChild(thumbnail);
 
-        galleryItem.addEventListener('click', () => {
-          galleryItem.classList.toggle('playing');
-          if (galleryItem.classList.contains('playing')) {
-            thumbnail.style.opacity = '0';
-          } else {
-            thumbnail.style.opacity = '1';
-            iframe.src = iframe.src; // Reset the video
-          }
-        });
-      }
+      const videoContainer = document.createElement('div');
+      videoContainer.className = 'video-container';
+      galleryItem.appendChild(videoContainer);
+
+      let videoPlaying = false;
+
+      galleryItem.addEventListener('click', () => {
+        if (!videoPlaying) {
+          videoPlaying = true;
+          videoContainer.classList.add('active');
+          thumbnail.style.opacity = '0';
+
+          const iframe = document.createElement('iframe');
+          iframe.src = `https://drive.google.com/file/d/${item.id}/preview`;
+          iframe.allow = "autoplay";
+          iframe.width = '100%';
+          iframe.height = '100%';
+          videoContainer.appendChild(iframe);
+        }
+      });
 
       gallery.appendChild(galleryItem);
     });
