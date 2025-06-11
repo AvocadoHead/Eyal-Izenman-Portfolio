@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Animation Gallery - Midjourney Style</title>
+  <title>Animation Gallery - Unified</title>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -62,8 +62,8 @@
     .gallery {
       column-count: 4;
       column-gap: 10px;
-      max-width: 1200px;
       width: 100%;
+      max-width: 1200px;
     }
     .gallery-item {
       break-inside: avoid;
@@ -82,14 +82,7 @@
       height: auto;
       display: block;
       border-radius: 8px;
-    }
-    .gallery-item iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
+      transition: opacity 0.3s ease;
     }
     .contact-info {
       margin-top: 40px;
@@ -115,11 +108,6 @@
       width: 45px;
       height: 45px;
       object-fit: contain;
-    }
-    .contact-info .email-link {
-      font-size: 0.95em;
-      color: #555;
-      text-decoration: none;
     }
     @media (max-width: 1200px) {
       .gallery {
@@ -149,10 +137,8 @@
     <h1>Animation | הנפשה</h1>
     <div class="description-container">
       <div class="text-container">
-        <p>My passion for animation lies in the beauty of capturing the essence of a moment and stretching it beyond its natural limits. I love the ability to slow down time, to explore every nuance, and to allow the smallest details to shine. Animation, for me, is about extending the feeling of now, and letting that feeling resonate deeply.</p>
-        <p class="hebrew">התשוקה שלי להנפשה מגיעה מגיעה מתוך היופי שביכולת למתוח רגע מעל לגבולותיו הארעיים, לתת ביטוי לכל ניואנס ופרט קטן. הנפשה הנפשה עבורי היא תחושת התמשכות של העכשיו והדהוד של התחושה הזו.
-
-.</p>
+        <p>My passion for animation lies in the beauty of capturing the essence of a moment and stretching it beyond its natural limits...</p>
+        <p class="hebrew">התשוקה שלי להנפשה מגיעה מתוך היכולת למתוח רגע מעל לגבולותיו ולתת ביטוי לניואנסים הקטנים ביותר.</p>
       </div>
       <div class="image-container">
         <img src="https://drive.google.com/thumbnail?id=1M2Z84DU_jtEqG1doqmUO7gukAN9MnXws" alt="Animation Inspiration">
@@ -169,12 +155,12 @@
   </div>
   <script>
     const mediaItems = [
-      { type: 'youtube', src: 'https://www.youtube.com/embed/yZ89TGox4pA' },
-      { type: 'iframe', src: 'https://drive.google.com/file/d/1Gw18guzbDMjD0Ckk6RMeYdZjxCPm1wWn/preview' },
-      { type: 'iframe', src: 'https://drive.google.com/file/d/1NyBJnf5W1UMhvuF9NZN8kmZNGlO1hdnR/preview' },
-      { type: 'iframe', src: 'https://drive.google.com/file/d/1Ar_xb6SthsNCYzFefxPlE7t4XxbCtSTF/preview' },
-      { type: 'iframe', src: 'https://drive.google.com/file/d/17jqjjAh2wcS7tWYa0x24ZYjgKlg58lxf/preview' },
-      { type: 'iframe', src: 'https://drive.google.com/file/d/1u0o1Swj7xEANZn8tB9fKSptLY6WoLDPs/preview' }
+      { type: 'youtube', id: 'yZ89TGox4pA' },
+      { type: 'drive', id: '1Gw18guzbDMjD0Ckk6RMeYdZjxCPm1wWn' },
+      { type: 'drive', id: '1NyBJnf5W1UMhvuF9NZN8kmZNGlO1hdnR' },
+      { type: 'drive', id: '1Ar_xb6SthsNCYzFefxPlE7t4XxbCtSTF' },
+      { type: 'drive', id: '17jqjjAh2wcS7tWYa0x24ZYjgKlg58lxf' },
+      { type: 'drive', id: '1u0o1Swj7xEANZn8tB9fKSptLY6WoLDPs' }
     ];
 
     const gallery = document.getElementById('gallery');
@@ -183,42 +169,40 @@
       const galleryItem = document.createElement('div');
       galleryItem.className = 'gallery-item';
 
-      if (item.type === 'image') {
-        const img = document.createElement('img');
-        img.src = item.src;
-        img.alt = 'Gallery Image';
-        galleryItem.appendChild(img);
-      } else if (item.type === 'iframe') {
-        const thumbnail = document.createElement('img');
-        const videoId = item.src.match(/\/d\/(.+)\/preview/);
-        if (videoId) {
-          thumbnail.src = `https://drive.google.com/thumbnail?id=${videoId[1]}`;
-          thumbnail.alt = 'Gallery Item';
-          galleryItem.appendChild(thumbnail);
-        }
-        
-        const iframe = document.createElement('iframe');
-        iframe.src = item.src;
-        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-        iframe.allowFullscreen = true;
-        galleryItem.appendChild(iframe);
+      const thumbnail = document.createElement('img');
+      thumbnail.alt = 'Video thumbnail';
 
-        galleryItem.addEventListener('click', () => {
-          galleryItem.classList.toggle('playing');
-          if (galleryItem.classList.contains('playing')) {
-            thumbnail.style.opacity = '0';
-          } else {
-            thumbnail.style.opacity = '1';
-            iframe.src = iframe.src; // Reset the video
-          }
-        });
-      } else if (item.type === 'youtube') {
-        const iframe = document.createElement('iframe');
-        iframe.src = item.src;
-        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
-        iframe.allowFullscreen = true;
-        galleryItem.appendChild(iframe);
+      if (item.type === 'youtube') {
+        thumbnail.src = `https://img.youtube.com/vi/${item.id}/0.jpg`;
+      } else if (item.type === 'drive') {
+        thumbnail.src = `https://drive.google.com/thumbnail?id=${item.id}`;
       }
+
+      galleryItem.appendChild(thumbnail);
+
+      let iframeCreated = false;
+      let iframe;
+
+      galleryItem.addEventListener('click', () => {
+        if (!iframeCreated) {
+          iframe = document.createElement('iframe');
+          iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+          iframe.allowFullscreen = true;
+          iframe.width = '100%';
+          iframe.height = '100%';
+
+          if (item.type === 'youtube') {
+            iframe.src = `https://www.youtube.com/embed/${item.id}?autoplay=1`;
+          } else if (item.type === 'drive') {
+            iframe.src = `https://drive.google.com/file/d/${item.id}/preview`;
+          }
+
+          galleryItem.appendChild(iframe);
+          iframeCreated = true;
+        }
+
+        thumbnail.style.opacity = '0';
+      });
 
       gallery.appendChild(galleryItem);
     });
