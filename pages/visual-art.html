@@ -151,53 +151,37 @@
     </div>
   </div>
   <script>
-    const mediaItems = [
-      { type: 'drive', id: '1MAFHatDOujK8OIAEtaR3j3DlzLB5EOSe' },
-      { type: 'image', src: 'https://drive.google.com/thumbnail?id=1rmLvhG6jv9OPe-vuvQLXDCld0rb6RZeV' },
-      { type: 'image', src: 'https://drive.google.com/thumbnail?id=1_bOyJyNF9t1KUrQjmBYYwdMRnydRffES' },
-      { type: 'image', src: 'https://drive.google.com/thumbnail?id=1kU4i02LLeeT6FeFKlM-tF5OtomtdZ6j8' },
-      { type: 'image', src: 'https://drive.google.com/thumbnail?id=1n5uJ3wALzi_jrwisqr-lMDZFUwcSVhA5' },
-      { type: 'image', src: 'https://drive.google.com/thumbnail?id=1MPD99XHgDLQfzi_fZekLQdxHD2GCT9v_' },
-      { type: 'image', src: 'https://drive.google.com/thumbnail?id=1ecp_KhFvC_bT9e3LiYu1UWbw5WMHQqqB' },
-      { type: 'image', src: 'https://drive.google.com/thumbnail?id=1MOo5-Q4teGukZCHa-akFC0wwROcFmKRQ' },
-      { type: 'image', src: 'https://drive.google.com/thumbnail?id=1yzGOur1iILREO4JDlh7s5tXAqnCU-hWF' }
+    const driveLinks = [
+      "1PuKBKqYpCXLxm1i9mVq0a0AuZ5Jc6lji","1_bOyJyNF9t1KUrQjmBYYwdMRnydRffES","1kU4i02LLeeT6FeFKlM-tF5OtomtdZ6j8","1n5uJ3wALzi_jrwisqr-lMDZFUwcSVhA5","1MPD99XHgDLQfzi_fZekLQdxHD2GCT9v_","1wUyzGmeWVUmxPJ1y_udaXk-x4PTs3wIs","1KYpNReKxpEyTvZYIb90Kxs5eaygfTnz-","14T6vvQq9cTu0RMqi2FJjjdrjn9q9S1kJ","1NKBda5BSW_MkuLSk7jgKfkHbnm1be7J7","1vVT50-sjRzyxzsfjd71DkAedGbY3LiqU","12CvZ154pg1NiatKB0KkUmz65kkR0FoGb","1Q74ZFkt5ZWtGT5uKtHHVCnVBqX9_505Y","1v3t7vPDlF9Fo4-iFRApM_FlZuoU40HSz","14ZwjFCltCD9PyedxgVLeotUIQj7QWwIW","1LrWAA7d5lQB8Z3Eug-zeA-1c_RkKJ3HE","1mU5udZUZFr2iHGAYsZhQNnbKFCwPV8vo","1N-ehsWMk45BGHfmP6XHTDKumARWEbgmZ","16QdlWf7RnbkZtRQDT5lZApL0rLu9zoFz","1HaGmN2Lm3Lgz2xYakbsoXBMsT7r3YDA2","1NbF6QWs9OWMM02BqORTKXN1lsAgAdP2J","1mudGAanxB32t5My26gRLMC_ieheogfFK","1ecp_KhFvC_bT9e3LiYu1UWbw5WMHQqqB","1MOo5-Q4teGukZCHa-akFC0wwROcFmKRQ","1yzGOur1iILREO4JDlh7s5tXAqnCU-hWF","11TrWxZS2tLawusPN87j4aLlrFCjO_WwN","1Sj38Metflrc1MjbNnDa3ECoBdbmBzA0J","1bB9QDn26NuRgcDx0RrTCVJLiuxtMvx-V","1dXTg4xBavn4RhCmRXFbwf_Q34LM06XzN","1fdup79Yryp6c8JPvPZJjm8PiIU6Ljw_9","19Fw1CNkqYhyXnCS5FJHPu3PM_UaIZpyb","1ycXy93jikieIMPoa44LpHC-SGUjKa6GE","17RMpITDmo5o4C0-4kDxZi1Ldn37gkwVW","1m91gWh19trDW0ylcWG5o0Mt_5OVQkSz2","1Ra1dHv_XCZZnPBWXyrstjNAQliTcDoRq","1Mw5IqdcMapXxM5x8zxbfacsOQIcoyezo","1d87V2X_d3_ySigb5-Jer0_Lex70PePNj","1m-WbbXLk6awU-OVlEN4RUPAqgDl5WE-Z","1dR-ALsfKp5i9CRPCJGKtaiWbMbF7Xj5j","1PlgunkEXIXwvyfTR2Q2gFWLix1KTVWbN","1rmLvhG6jv9OPe-vuvQLXDCld0rb6RZeV","19kgfr-V0luci-4nkGrGxGi4VZT7UO6jO","1zKSfnny-G4LAECjY386dUaouUkX0ELIA","1MAFHatDOujK8OIAEtaR3j3DlzLB5EOSe"
     ];
 
     const gallery = document.getElementById('gallery');
 
-    mediaItems.forEach(item => {
+    driveLinks.forEach(id => {
       const galleryItem = document.createElement('div');
       galleryItem.className = 'gallery-item';
 
-      if (item.type === 'image') {
-        const img = document.createElement('img');
-        img.src = item.src;
-        img.alt = 'Gallery Image';
-        img.className = 'thumbnail';
-        galleryItem.appendChild(img);
-      } else if (item.type === 'drive') {
-        const thumbnail = document.createElement('img');
-        thumbnail.src = `https://drive.google.com/thumbnail?id=${item.id}`;
-        thumbnail.alt = 'Video thumbnail';
-        thumbnail.className = 'thumbnail';
-        galleryItem.appendChild(thumbnail);
+      const thumbnail = document.createElement('img');
+      thumbnail.src = `https://drive.google.com/thumbnail?id=${id}`;
+      thumbnail.alt = 'Media thumbnail';
+      thumbnail.className = 'thumbnail';
+      galleryItem.appendChild(thumbnail);
 
-        const videoContainer = document.createElement('div');
-        videoContainer.className = 'video-container';
-        galleryItem.appendChild(videoContainer);
+      const videoContainer = document.createElement('div');
+      videoContainer.className = 'video-container';
+      galleryItem.appendChild(videoContainer);
 
-        galleryItem.addEventListener('click', () => {
-          videoContainer.classList.add('active');
-          thumbnail.style.opacity = '0';
+      galleryItem.addEventListener('click', () => {
+        videoContainer.classList.add('active');
+        thumbnail.style.opacity = '0';
 
-          const iframe = document.createElement('iframe');
-          iframe.src = `https://drive.google.com/file/d/${item.id}/preview`;
-          iframe.allow = 'autoplay';
-          iframe.width = '100%';
-          iframe.height = '100%';
-          videoContainer.appendChild(iframe);
-        });
-      }
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://drive.google.com/file/d/${id}/preview`;
+        iframe.allow = 'autoplay';
+        iframe.width = '100%';
+        iframe.height = '100%';
+        videoContainer.appendChild(iframe);
+      });
 
       gallery.appendChild(galleryItem);
     });
