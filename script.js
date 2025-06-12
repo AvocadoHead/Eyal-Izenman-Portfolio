@@ -84,9 +84,13 @@ function setLanguage(lang) {
   document.documentElement.setAttribute('data-lang', lang);
   localStorage.setItem('lang', lang);
   if (languageToggle) {
+ 3mvijm-codex/verify-repository-connection-and-version-control
     languageToggle.textContent = lang === 'en' ? 'HE' : 'EN';
   }
   updateCarouselTitles();
+    languageToggle.textContent = lang === 'en' ? 'עברית' : 'English';
+  }
+ main
 }
 
 if (languageToggle) {
@@ -96,6 +100,7 @@ if (languageToggle) {
   });
 }
 
+ 3mvijm-codex/verify-repository-connection-and-version-control
 function getItemTitle(item) {
   const lang = document.documentElement.getAttribute('data-lang') || 'en';
   return lang === 'he' ? item.titleHe : item.titleEn;
@@ -128,6 +133,24 @@ function updateCarouselTitles() {
     el.querySelector('h3').textContent = getItemTitle(items[index]);
   });
 }
+=======
+function createCarouselItems() {
+  items.forEach((item, i) => {
+    const element = document.createElement('div');
+    element.className = 'carousel-item';
+    element.innerHTML = `
+      <img src="${item.src}" alt="${item.title}" loading="lazy">
+      <h3>${item.title}</h3>
+    `;
+    element.style.transform = `rotateY(${i * angle}deg) translateZ(300px)`;
+    element.addEventListener('click', (e) => {
+      e.preventDefault();
+      handleItemClick(element, item);
+    });
+    carousel.appendChild(element);
+  });
+}
+ main
 
 function handleItemClick(clickedItem, itemData) {
   const carouselItems = document.querySelectorAll('.carousel-item');
@@ -298,6 +321,7 @@ function startFloatingQuotes() {
 // Start the carousel and floating quotes when the page loads
 window.addEventListener('load', () => {
   const savedLang = localStorage.getItem('lang') || 'en';
+ 3mvijm-codex/verify-repository-connection-and-version-control
   if (carousel) {
     createCarouselItems();
     setLanguage(savedLang); // ensure titles update after items exist
@@ -305,5 +329,9 @@ window.addEventListener('load', () => {
   } else {
     setLanguage(savedLang); // still apply language preference on other pages
   }
+  setLanguage(savedLang);
+  createCarouselItems();
+  updateCarousel();
+ main
   startFloatingQuotes();
 });

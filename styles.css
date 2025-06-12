@@ -20,6 +20,7 @@ body {
 
 #language-toggle {
   position: fixed;
+ 3mvijm-codex/verify-repository-connection-and-version-control
   top: 15px;
   right: 15px;
   padding: 16px 24px;
@@ -51,6 +52,19 @@ body {
   background-color: #555;
 }
 
+=======
+  top: 10px;
+  right: 10px;
+  padding: 8px 12px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+ main
 #language-toggle:hover {
   background-color: #555;
 }
@@ -76,9 +90,15 @@ h2 {
 .carousel-container {
   perspective: 1000px;
   perspective-origin: 50% -35%;
+ 3mvijm-codex/verify-repository-connection-and-version-control
   width: 80%;
   max-width: 1200px;
   height: 500px;
+
+  width: 55%;
+  max-width: 900px;
+  height: 360px;
+ main
   position: relative;
   margin: 40px auto;
 }
