@@ -84,7 +84,7 @@ function setLanguage(lang) {
   document.documentElement.setAttribute('data-lang', lang);
   localStorage.setItem('lang', lang);
   if (languageToggle) {
-    languageToggle.textContent = lang === 'en' ? 'EN' : 'HE';
+    languageToggle.textContent = lang === 'en' ? 'HE' : 'EN';
   }
   updateCarouselTitles();
 }
