@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -176,11 +176,12 @@
   </style>
 </head>
 <body>
+  <button id="language-toggle">עברית</button>
   <div class="container">
-    <h1>Motion Design | עיצוב תנועה</h1>
+    <h1><span class="english">Motion Design</span> | <span class="hebrew">עיצוב תנועה</span></h1>
     <div class="description-container">
       <div class="text-container">
-        <p>Motion design is a fundamental element for any motion graphics artist. I find a deep interest in mastering the classic principles of motion animation, often immersing myself in the nuances that make up subtle movements.</p>
+        <p class="english">Motion design is a fundamental element for any motion graphics artist. I find a deep interest in mastering the classic principles of motion animation, often immersing myself in the nuances that make up subtle movements.</p>
         <p class="hebrew">עיצוב תנועה הוא מאבות המזון של האפטריסט המצוי, אני מוצא ענין עמוק בשימוש מיטבי ביכולות של הנפשת תנועה קלאסית ומוצא את עצמי שוקע בקלות בניואנסים שמרכיבים תנועות מעודנות.</p>
       </div>
       <div class="image-container">
@@ -266,5 +267,6 @@
       gallery.appendChild(galleryItem);
     });
   </script>
+  <script src="../script.js"></script>
 </body>
 </html>

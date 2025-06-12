@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -217,11 +217,12 @@
   </style>
 </head>
 <body>
+  <button id="language-toggle">עברית</button>
   <div class="container">
-    <h1>Courses | קורסים</h1>
+    <h1><span class="english">Courses</span> | <span class="hebrew">קורסים</span></h1>
     <div class="description-container">
       <div class="text-container">
-        <p>
+        <p class="english">
           I teach various subjects that bring together my experience with artificial intelligence, creativity, and digital design. Through lessons and lectures, I cover topics ranging from the introdution to the technology, the impact of AI on society, to advanced AI-based video techniques. I offer a broad perspective that includes practical skills and philosophical insights.
         </p>
         <p class="hebrew">
@@ -407,5 +408,6 @@
       box.style.animationDuration = `${boxHeight / 15}s`;
     });
   </script>
+  <script src="../script.js"></script>
 </body>
 </html>

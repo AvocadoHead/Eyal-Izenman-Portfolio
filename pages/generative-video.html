@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -142,11 +142,12 @@
   </style>
 </head>
 <body>
+  <button id="language-toggle">עברית</button>
   <div class="container">
-    <h1>Generative Video | וידאו ג'נרטיבי</h1>
+    <h1><span class="english">Generative Video</span> | <span class="hebrew">וידאו ג'נרטיבי</span></h1>
     <div class="description-container">
       <div class="text-container">
-        <p>I create memes and pop-culture-inspired art as a form of creative escape, allowing me to engage with contemporary culture in a playful yet meaningful way. This work also serves as a reflection on the aesthetic complexities of our times.</p>
+        <p class="english">I create memes and pop-culture-inspired art as a form of creative escape, allowing me to engage with contemporary culture in a playful yet meaningful way. This work also serves as a reflection on the aesthetic complexities of our times.</p>
         <p class="hebrew"> אני יוצר מימים ואמנות המושפעת מהתרבות הפופולרית כדרך יצירתית  לברוח, דרך שמאפשרת לי להיות מעורב בתרבות העכשווית באופן משעשע ומשמעותי. היצירה שלי מהווה גם התבוננות על המורכבות האסתטית של זמננו.</p>
       </div>
       <div class="image-container">
@@ -224,5 +225,6 @@
       gallery.appendChild(galleryItem);
     });
   </script>
+  <script src="../script.js"></script>
 </body>
 </html>

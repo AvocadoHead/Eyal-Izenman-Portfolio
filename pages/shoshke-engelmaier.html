@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -129,10 +129,11 @@
   </style>
 </head>
 <body>
-  <h1>Shoshke Engelmaier | שושקה (זאב) אנגלמאיר</h1>
+  <button id="language-toggle">עברית</button>
+  <h1><span class="english">Shoshke Engelmaier</span> | <span class="hebrew">שושקה (זאב) אנגלמאיר</span></h1>
   <div class="description-container">
     <div class="text-container">
-      <p>I began creating these animations with the desire to extend the moment that Shoshke had drawn, allowing for a sense of presence with those abducted in Gaza. Through animation, I aim to bring back the presence and provide a space where the viewer can share a moment with those who are held captive.</p>
+      <p class="english">I began creating these animations with the desire to extend the moment that Shoshke had drawn, allowing for a sense of presence with those abducted in Gaza. Through animation, I aim to bring back the presence and provide a space where the viewer can share a moment with those who are held captive.</p>
       <p class="hebrew">התחלתי ליצור את ההנפשות האלו מתוך רצון למשוך את הרגע ששושקה צייר, לכדי שהות עם החטופים בעזה. דרך ההנפשה, אני שואף להשיב את הנוכחות ולאפשר לצופה לחלוק רגע עם אלו שנמצאים בשבי.</p>
     </div>
     <div class="image-container">
@@ -228,5 +229,6 @@
       gallery.appendChild(galleryItem);
     });
   </script>
+  <script src="../script.js"></script>
 </body>
 </html>

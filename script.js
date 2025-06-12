@@ -28,6 +28,23 @@ let touchStartTime;
 const TAP_THRESHOLD = 10;
 const TAP_TIMEOUT = 200;
 
+// Language toggle functionality
+const languageToggle = document.getElementById('language-toggle');
+function setLanguage(lang) {
+  document.documentElement.setAttribute('data-lang', lang);
+  localStorage.setItem('lang', lang);
+  if (languageToggle) {
+    languageToggle.textContent = lang === 'en' ? 'עברית' : 'English';
+  }
+}
+
+if (languageToggle) {
+  languageToggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-lang') || 'en';
+    setLanguage(current === 'en' ? 'he' : 'en');
+  });
+}
+
 function createCarouselItems() {
   items.forEach((item, i) => {
     const element = document.createElement('div');
@@ -210,6 +227,8 @@ function startFloatingQuotes() {
 
 // Start the carousel and floating quotes when the page loads
 window.addEventListener('load', () => {
+  const savedLang = localStorage.getItem('lang') || 'en';
+  setLanguage(savedLang);
   createCarouselItems();
   updateCarousel();
   startFloatingQuotes();

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -130,11 +130,12 @@
   </style>
 </head>
 <body>
+  <button id="language-toggle">עברית</button>
   <div class="container">
-    <h1>Visual Art | אמנות חזותית</h1>
+    <h1><span class="english">Visual Art</span> | <span class="hebrew">אמנות חזותית</span></h1>
     <div class="description-container">
       <div class="text-container">
-        <p>I create visual art in a classicistic manner, drawing inspiration from traditional techniques and aesthetics. My series "Drawing Inspiration" adopts the appearance of watercolors, while conveying a deep exploration of artistic themes. Through delicate strokes and subtle hues, I evoke timeless emotions and blend classical beauty with modern artistic insight.</p>
+        <p class="english">I create visual art in a classicistic manner, drawing inspiration from traditional techniques and aesthetics. My series "Drawing Inspiration" adopts the appearance of watercolors, while conveying a deep exploration of artistic themes. Through delicate strokes and subtle hues, I evoke timeless emotions and blend classical beauty with modern artistic insight.</p>
         <p class="hebrew">אני יוצר אמנות חזותית בסגנון קלאסיציסטי, בהשראת טכניקות ואסתטטיקה מסורתיות. הסדרה שלי "Drawing Inspiration" מאופיינת במרא המזכיר צבעי מים, תוך העברת חקירה עמוקה של נושאים אמנותיים. באמצעות משיכות עדינות וגוונים רכים, אני מעורר רגשות נצחיים ומשלב יופי קלאסי עם חדר אמנותית עכשווית.</p>
       </div>
       <div class="image-container">
@@ -186,5 +187,6 @@
       gallery.appendChild(galleryItem);
     });
   </script>
+  <script src="../script.js"></script>
 </body>
 </html>
