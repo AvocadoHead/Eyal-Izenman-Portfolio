@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Generative Video Gallery</title>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css">
   <style>
     body {
       font-family: 'Heebo', Arial, sans-serif;
@@ -59,15 +58,14 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     .gallery {
-      column-count: 4;
-      column-gap: 10px;
-      max-width: 1200px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
       width: 100%;
     }
     .gallery-item {
-      break-inside: avoid;
-      margin-bottom: 10px;
       position: relative;
+      aspect-ratio: 16 / 9;
       overflow: hidden;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -79,7 +77,8 @@
     }
     .thumbnail {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
       display: block;
       transition: opacity 0.3s ease;
     }
@@ -121,17 +120,17 @@
     }
     @media (max-width: 1200px) {
       .gallery {
-        column-count: 3;
+        grid-template-columns: repeat(3, 1fr);
       }
     }
     @media (max-width: 900px) {
       .gallery {
-        column-count: 2;
+        grid-template-columns: repeat(2, 1fr);
       }
     }
     @media (max-width: 600px) {
       .gallery {
-        column-count: 1;
+        grid-template-columns: 1fr;
       }
       .description-container {
         flex-direction: column;
@@ -143,11 +142,7 @@
   </style>
 </head>
 <body>
- 3mvijm-codex/verify-repository-connection-and-version-control
-  <button id="language-toggle">HE</button>
-  <a href="../index.html" class="home-button">Home</a>
   <button id="language-toggle">עברית</button>
- main
   <div class="container">
     <h1><span class="english">Generative Video</span> | <span class="hebrew">וידאו ג'נרטיבי</span></h1>
     <div class="description-container">
