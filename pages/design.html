@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Design Gallery - Midjourney Style</title>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
   <style>
     body {
       font-family: 'Heebo', Arial, sans-serif;
@@ -150,11 +151,13 @@
   </style>
 </head>
 <body>
+  <button id="language-toggle">HE</button>
+  <a href="../index.html" class="home-button">Home</a>
   <div class="container">
-    <h1>Design | עיצוב</h1>
+    <h1><span class="english">Design</span> | <span class="hebrew">עיצוב</span></h1>
     <div class="description-container">
       <div class="text-container">
-        <p>I have always been passionate about design. It allows me to create impactful visual experiences that resonate deeply with audiences. My work blends aesthetics and functionality, raising questions about the role of design in our everyday lives.</p>
+        <p class="english">I have always been passionate about design. It allows me to create impactful visual experiences that resonate deeply with audiences. My work blends aesthetics and functionality, raising questions about the role of design in our everyday lives.</p>
         <p class="hebrew">תמיד הייתה לי אהבה לעיצוב. הוא מאפשר לי ליצור חוויות ויזואליות שיש להן השפעה עמוקה על הקהל. עבודתי משלבת בין אסתטיקה לפונקציונליות ומעלה שאלות על תפקיד העיצוב בחיינו היומיומיים.</p>
       </div>
       <div class="image-container">
@@ -237,5 +240,6 @@
       gallery.appendChild(galleryItem);
     });
   </script>
+  <script src="../script.js"></script>
 </body>
 </html>

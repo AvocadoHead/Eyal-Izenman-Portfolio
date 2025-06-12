@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Animation Gallery - Unified</title>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
   <style>
     body {
       font-family: 'Heebo', Arial, sans-serif;
@@ -56,26 +57,23 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      width: 100%;
+      column-count: 4;
+      column-gap: 10px;
       max-width: 1200px;
+      width: 100%;
     }
     .gallery-item {
-      flex: 0 1 auto;
-      max-width: 100%;
+      break-inside: avoid;
+      margin-bottom: 10px;
       position: relative;
       overflow: hidden;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease;
       cursor: pointer;
     }
     .gallery-item:hover {
       transform: scale(1.05);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     }
     .thumbnail {
       width: 100%;
@@ -119,14 +117,37 @@
       height: 45px;
       object-fit: contain;
     }
+    @media (max-width: 1200px) {
+      .gallery {
+        column-count: 3;
+      }
+    }
+    @media (max-width: 900px) {
+      .gallery {
+        column-count: 2;
+      }
+    }
+    @media (max-width: 600px) {
+      .gallery {
+        column-count: 1;
+      }
+      .description-container {
+        flex-direction: column;
+      }
+      .image-container {
+        order: -1;
+      }
+    }
   </style>
 </head>
 <body>
+  <button id="language-toggle">HE</button>
+  <a href="../index.html" class="home-button">Home</a>
   <div class="container">
-    <h1>Animation | הנפשה</h1>
+    <h1><span class="english">Animation</span> | <span class="hebrew">הנפשה</span></h1>
     <div class="description-container">
       <div class="text-container">
-        <p>My passion for animation lies in the beauty of capturing the essence of a moment and stretching it beyond its natural limits...</p>
+        <p class="english">My passion for animation lies in the beauty of capturing the essence of a moment and stretching it beyond its natural limits...</p>
         <p class="hebrew">התשוקה שלי להנפשה מגיעה מתוך היכולת למתוח רגע מעל לגבולותיו ולתת ביטוי לניואנסים הקטנים ביותר.</p>
       </div>
       <div class="image-container">
@@ -207,5 +228,6 @@
       gallery.appendChild(galleryItem);
     });
   </script>
+  <script src="../script.js"></script>
 </body>
 </html>

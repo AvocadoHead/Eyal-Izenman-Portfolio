@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="he-IL">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Me | אודותיי - Eyal Izenman</title>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
   <style>
     body {
       font-family: 'Heebo', Arial, sans-serif;
@@ -60,19 +61,18 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+      column-count: 4;
+      column-gap: 10px;
       max-width: 1200px;
       width: 100%;
-      justify-content: center;
     }
     .gallery-item {
-      flex: 1 1 20%;
-      max-width: 200px;
+      break-inside: avoid;
       margin-bottom: 10px;
+      position: relative;
       overflow: hidden;
       border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       cursor: pointer;
       transition: transform 0.3s ease;
     }
@@ -82,26 +82,26 @@
       display: block;
       border-radius: 8px;
     }
-    .gallery-item.video-item {
-      flex: 1 1 60%;
-      max-width: 800px;
-    }
-    .video-wrapper {
-      position: relative;
-      padding-bottom: 56.25%; /* 16:9 aspect ratio */
-      height: 0;
-      overflow: hidden;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-    .video-wrapper iframe {
+    .gallery-item iframe {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       border: none;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .gallery-item.playing iframe {
+      opacity: 1;
+    }
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
       border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
     .contact-info {
       margin-top: 40px;
@@ -134,27 +134,18 @@
       text-decoration: none;
     }
     @media (max-width: 1200px) {
-      .gallery-item {
-        flex: 1 1 30%;
-      }
-      .gallery-item.video-item {
-        flex: 1 1 100%;
+      .gallery {
+        column-count: 3;
       }
     }
     @media (max-width: 900px) {
-      .gallery-item {
-        flex: 1 1 45%;
-      }
-      .gallery-item.video-item {
-        flex: 1 1 100%;
+      .gallery {
+        column-count: 2;
       }
     }
     @media (max-width: 600px) {
-      .gallery-item {
-        flex: 1 1 100%;
-      }
-      .gallery-item.video-item {
-        flex: 1 1 100%;
+      .gallery {
+        column-count: 1;
       }
       .description-container {
         flex-direction: column;
@@ -166,13 +157,15 @@
   </style>
 </head>
 <body>
+  <button id="language-toggle">HE</button>
+  <a href="../index.html" class="home-button">Home</a>
   <div class="container">
-    <h1>About Me | אודותיי</h1>
+    <h1><span class="english">About Me</span> | <span class="hebrew">אודותיי</span></h1>
     <div class="description-container">
       <div class="text-container">
-        <p>I am Eyal Izenman, a visual artist and educator with a deep expertise in generative artificial intelligence. 
+        <p class="english">I am Eyal Izenman, a visual artist and educator with a deep expertise in generative artificial intelligence. 
            My work focuses on creating unique visual experiences and exploring the creative and ethical dimensions of AI.</p>
-        <p>Through my art and teaching, I strive to bridge the gap between technology and creativity, pushing the boundaries of what's possible in visual storytelling and interactive experiences.</p>
+        <p class="english">Through my art and teaching, I strive to bridge the gap between technology and creativity, pushing the boundaries of what's possible in visual storytelling and interactive experiences.</p>
         <p class="hebrew">אני איל איזנמן, אמן חזותי ומורה עם מומחיות מעמיקה בבינה מלאכותית ג'נרטיבית. עבודתי מתמקדת ביצירת חוויות חזותיות יחודיות ובחקירת הממדים היצירתיים והאתיים של בינה מלאכותית.</p>
         <p class="hebrew">באמצעות האמנות וההוראה שלי, אני שואף לגשר על הפער בין טכנולוגיה ליצירתית, תוך דחיפת גבולות האפשרי בסיפור חזותי וחוויות אינטראקטיביות.</p>
       </div>
@@ -198,5 +191,6 @@
       <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://wa.me/97236030603" alt="WhatsApp QR Code">
     </div>
   </div>
+  <script src="../script.js"></script>
 </body>
 </html>

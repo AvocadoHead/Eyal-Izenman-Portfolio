@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="he">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Above and Beyond | מעל ומעבר</title>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
   <style>
     body {
       font-family: 'Heebo', Arial, sans-serif;
@@ -104,27 +105,24 @@
       text-align: center;
     }
     .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      width: 100%;
+      column-count: 4;
+      column-gap: 10px;
       max-width: 1200px;
+      width: 100%;
       margin-top: 40px;
     }
     .gallery-item {
-      flex: 1 1 200px;
-      max-width: 250px;
+      break-inside: avoid;
+      margin-bottom: 10px;
       position: relative;
       overflow: hidden;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease;
       cursor: pointer;
     }
     .gallery-item:hover {
       transform: scale(1.05);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     }
     .thumbnail {
       width: 100%;
@@ -162,14 +160,38 @@
       color: #555;
       text-decoration: none;
     }
+    @media (max-width: 1200px) {
+      .gallery {
+        column-count: 3;
+      }
+    }
+    @media (max-width: 900px) {
+      .gallery {
+        column-count: 2;
+      }
+    }
+    @media (max-width: 600px) {
+      .gallery {
+        column-count: 1;
+      }
+      .description-container {
+        flex-direction: column;
+      }
+      .image-container {
+        order: -1;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Above and Beyond | מעל ומעבר</h1>
+  <button id="language-toggle">HE</button>
+  <a href="../index.html" class="home-button">Home</a>
+  <div class="container">
+  <h1><span class="english">Above and Beyond</span> | <span class="hebrew">מעל ומעבר</span></h1>
   <div class="description-container"><div class="text-container">
-  <p>Starting in music and teaching, I took a bold step into visual arts and AI, where I continue exploring new creative paths. Today, I work as a designer and video editor, teaching digital design and motion graphics, with AI as a central theme. 
+  <p class="english">Starting in music and teaching, I took a bold step into visual arts and AI, where I continue exploring new creative paths. Today, I work as a designer and video editor, teaching digital design and motion graphics, with AI as a central theme. 
 Recently, I brought together a group of experts in design, video with an inclination toward to form a creative guild and the sky is merely the way. Ad Astra!</p>
-  <p>My roots in art and music bring a hands-on, thoughtful approach to visual storytelling, blending creativity with technical skill.</p>
+  <p class="english">My roots in art and music bring a hands-on, thoughtful approach to visual storytelling, blending creativity with technical skill.</p>
   <p class="hebrew">
 התחלתי את המסע שלי במוזיקה והוראה, ועשיתי מעבר חד לעולם החזותי ולבינה מלאכותית, ואני ממשיך לגלות דרכים יצירתיות חדשות. היום אני מעצב ועורך וידאו, מלמד עיצוב דיגיטלי ותנועה, כשהבינה המלאכותית היא נושא מרכזי.
 לאחרונה גיבשתי קבוצת מומחים\ות בעיצוב, וידאו עם זיקה לבינה מלאכותית לכדי גילדה יצירתית והשמיים הם רק הדרך. Ad Astra!</p>
@@ -265,7 +287,8 @@ Recently, I brought together a group of experts in design, video with an inclina
     <div class="gallery-item">
       <img src="https://drive.google.com/thumbnail?id=1ahKplaBaKqbn6Jqt_2UOihF--EI1F_gn" alt="Artwork 4" class="thumbnail">
     </div>
-  </div>
+  </div></div>
+
   <div class="contact-info">
     <div class="contact-details">
       <a href="https://wa.me/97236030603" target="_blank">WhatsApp: +972 3 6030603</a>
@@ -273,5 +296,6 @@ Recently, I brought together a group of experts in design, video with an inclina
     </div>
     <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://wa.me/97236030603" alt="WhatsApp QR Code">
   </div>
+  <script src="../script.js"></script>
 </body>
 </html>
