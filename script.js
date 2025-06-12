@@ -271,7 +271,7 @@ if (carousel) {
 // Floating Quotes functionality
 const quotes = [
   "קוֹלֵט הֵדִים, מְתָאֵר אֲוִיר",
-  "הַחַיִּים כְּהֶתְקֵף חֲרָדָה, קַל וּמִתְמַשֵּׁךְ",
+document.addEventListener('DOMContentLoaded', () => {
   "הָאֱמֶת לְעִתִּים מֵתָה פִיזִית, אֲבָל הִיא מֵטָאפִיזִית",
   // Add more quotes as needed
 ];
