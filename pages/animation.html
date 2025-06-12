@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -122,11 +122,12 @@
   </style>
 </head>
 <body>
+  <button id="language-toggle">עברית</button>
   <div class="container">
-    <h1>Animation | הנפשה</h1>
+    <h1><span class="english">Animation</span> | <span class="hebrew">הנפשה</span></h1>
     <div class="description-container">
       <div class="text-container">
-        <p>My passion for animation lies in the beauty of capturing the essence of a moment and stretching it beyond its natural limits...</p>
+        <p class="english">My passion for animation lies in the beauty of capturing the essence of a moment and stretching it beyond its natural limits...</p>
         <p class="hebrew">התשוקה שלי להנפשה מגיעה מתוך היכולת למתוח רגע מעל לגבולותיו ולתת ביטוי לניואנסים הקטנים ביותר.</p>
       </div>
       <div class="image-container">
@@ -207,5 +208,6 @@
       gallery.appendChild(galleryItem);
     });
   </script>
+  <script src="../script.js"></script>
 </body>
 </html>

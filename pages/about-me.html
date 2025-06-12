@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="he-IL">
+<html lang="he-IL" data-lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -166,13 +166,14 @@
   </style>
 </head>
 <body>
+  <button id="language-toggle">עברית</button>
   <div class="container">
-    <h1>About Me | אודותיי</h1>
+    <h1><span class="english">About Me</span> | <span class="hebrew">אודותיי</span></h1>
     <div class="description-container">
       <div class="text-container">
-        <p>I am Eyal Izenman, a visual artist and educator with a deep expertise in generative artificial intelligence. 
+        <p class="english">I am Eyal Izenman, a visual artist and educator with a deep expertise in generative artificial intelligence. 
            My work focuses on creating unique visual experiences and exploring the creative and ethical dimensions of AI.</p>
-        <p>Through my art and teaching, I strive to bridge the gap between technology and creativity, pushing the boundaries of what's possible in visual storytelling and interactive experiences.</p>
+        <p class="english">Through my art and teaching, I strive to bridge the gap between technology and creativity, pushing the boundaries of what's possible in visual storytelling and interactive experiences.</p>
         <p class="hebrew">אני איל איזנמן, אמן חזותי ומורה עם מומחיות מעמיקה בבינה מלאכותית ג'נרטיבית. עבודתי מתמקדת ביצירת חוויות חזותיות יחודיות ובחקירת הממדים היצירתיים והאתיים של בינה מלאכותית.</p>
         <p class="hebrew">באמצעות האמנות וההוראה שלי, אני שואף לגשר על הפער בין טכנולוגיה ליצירתית, תוך דחיפת גבולות האפשרי בסיפור חזותי וחוויות אינטראקטיביות.</p>
       </div>
@@ -198,5 +199,6 @@
       <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://wa.me/97236030603" alt="WhatsApp QR Code">
     </div>
   </div>
+  <script src="../script.js"></script>
 </body>
 </html>

@@ -18,6 +18,23 @@ body {
   align-items: center;
 }
 
+#language-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 8px 12px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+#language-toggle:hover {
+  background-color: #555;
+}
+
 h1 {
   font-size: 2.5em;
   font-weight: 700;
@@ -39,9 +56,9 @@ h2 {
 .carousel-container {
   perspective: 1000px;
   perspective-origin: 50% -35%;
-  width: 45%;
-  max-width: 800px;
-  height: 300px;
+  width: 55%;
+  max-width: 900px;
+  height: 360px;
   position: relative;
   margin: 40px auto;
 }
@@ -149,6 +166,14 @@ h2 {
   z-index: 10;
 }
 
+html[data-lang="en"] .hebrew {
+  display: none;
+}
+
+html[data-lang="he"] .english {
+  display: none;
+}
+
 #floating-quotes-container {
   position: fixed;
   top: 0;
@@ -217,7 +242,7 @@ h2 {
   }
 
   .carousel-container {
-    width: 90%;
+    width: 100%;
   }
 
   .contact-info a {
