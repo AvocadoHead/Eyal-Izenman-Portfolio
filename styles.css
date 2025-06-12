@@ -76,9 +76,9 @@ h2 {
 .carousel-container {
   perspective: 1000px;
   perspective-origin: 50% -35%;
-  width: 90%;
-  max-width: 1400px;
-  height: 600px;
+  width: 95%;
+  max-width: 1600px;
+  height: 650px;
   position: relative;
   margin: 40px auto;
 }
@@ -94,12 +94,12 @@ h2 {
 
 .carousel-item {
   position: absolute;
-  width: 340px;
-  height: 340px;
+  width: 380px;
+  height: 380px;
   left: 50%;
   top: 50%;
-  margin-left: -170px;
-  margin-top: -170px;
+  margin-left: -190px;
+  margin-top: -190px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
   text-align: center;
