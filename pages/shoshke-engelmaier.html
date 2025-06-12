@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gallery - Shoshke Engelmaier</title>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
   <style>
     body {
       font-family: 'Heebo', Arial, sans-serif;
@@ -57,27 +58,24 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      width: 100%;
+      column-count: 4;
+      column-gap: 10px;
       max-width: 1200px;
+      width: 100%;
       margin-top: 20px;
     }
     .gallery-item {
-      flex: 0 1 auto;
-      max-width: 100%;
+      break-inside: avoid;
+      margin-bottom: 10px;
       position: relative;
       overflow: hidden;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s ease;
       cursor: pointer;
     }
     .gallery-item:hover {
       transform: scale(1.05);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     }
     .thumbnail {
       width: 100%;
@@ -126,13 +124,36 @@
       color: #555;
       text-decoration: none;
     }
+    @media (max-width: 1200px) {
+      .gallery {
+        column-count: 3;
+      }
+    }
+    @media (max-width: 900px) {
+      .gallery {
+        column-count: 2;
+      }
+    }
+    @media (max-width: 600px) {
+      .gallery {
+        column-count: 1;
+      }
+      .description-container {
+        flex-direction: column;
+      }
+      .image-container {
+        order: -1;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Shoshke Engelmaier | שושקה (זאב) אנגלמאיר</h1>
+  <button id="language-toggle">EN</button>
+  <a href="../index.html" class="home-button">Home</a>
+  <h1><span class="english">Shoshke Engelmaier</span> | <span class="hebrew">שושקה (זאב) אנגלמאיר</span></h1>
   <div class="description-container">
     <div class="text-container">
-      <p>I began creating these animations with the desire to extend the moment that Shoshke had drawn, allowing for a sense of presence with those abducted in Gaza. Through animation, I aim to bring back the presence and provide a space where the viewer can share a moment with those who are held captive.</p>
+      <p class="english">I began creating these animations with the desire to extend the moment that Shoshke had drawn, allowing for a sense of presence with those abducted in Gaza. Through animation, I aim to bring back the presence and provide a space where the viewer can share a moment with those who are held captive.</p>
       <p class="hebrew">התחלתי ליצור את ההנפשות האלו מתוך רצון למשוך את הרגע ששושקה צייר, לכדי שהות עם החטופים בעזה. דרך ההנפשה, אני שואף להשיב את הנוכחות ולאפשר לצופה לחלוק רגע עם אלו שנמצאים בשבי.</p>
     </div>
     <div class="image-container">
@@ -228,5 +249,6 @@
       gallery.appendChild(galleryItem);
     });
   </script>
+  <script src="../script.js"></script>
 </body>
 </html>
