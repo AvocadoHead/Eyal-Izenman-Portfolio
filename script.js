@@ -1,14 +1,64 @@
 const items = [
-  { title: 'About Me', src: 'https://drive.google.com/thumbnail?id=1PzZBzXBSmCvBjHPHaw3xdswfUlDS7a56', link: 'pages/about-me.html' },
-  { title: 'Animation', src: 'https://drive.google.com/thumbnail?id=1M2Z84DU_jtEqG1doqmUO7gukAN9MnXws', link: 'pages/animation.html' },
-  { title: 'Courses', src: 'https://drive.google.com/thumbnail?id=1b62GivFwZR4djMTP0qmVhFvk9Vr0-uwy', link: 'pages/courses.html' },
-  { title: 'DeepFake', src: 'https://drive.google.com/thumbnail?id=1F_h8tAnGZb-u1VoUJ1gX_g1Qq6yz5zMN', link: 'pages/deepfake.html' },
-  { title: 'Design', src: 'https://drive.google.com/thumbnail?id=1E-AtjtH7ggL-EQzg14GwjIbf8i7hVw8O', link: 'pages/design.html' },
-  { title: 'Motion Design', src: 'https://drive.google.com/thumbnail?id=1Uf0Wza_h-qsoE1kZHT1QRUK13mcsqSa5', link: 'pages/motion-design.html' },
-  { title: 'Shoshke Engelmaier', src: 'https://drive.google.com/thumbnail?id=15xg5m4gL6K4mt2YfKlAfuKOPWSyxfVE3', link: 'pages/shoshke-engelmaier.html' },
-  { title: 'Visual Art', src: 'https://drive.google.com/thumbnail?id=1YbayXi_u8lY8bxjuo2VjFwDOCrGnquIh', link: 'pages/visual-art.html' },
-  { title: 'Generative Video', src: 'https://drive.google.com/thumbnail?id=1eyH78d9a0R216B1B2Buelf9rIfMCrdRE', link: 'pages/generative-video.html' },
-  { title: 'Above and Beyond', src: 'https://drive.google.com/thumbnail?id=1rO-rggUfDimdefDfiDZlfesuvyBIE_kq', link: 'pages/above-and-beyond.html' }
+  {
+    titleEn: 'About Me',
+    titleHe: 'אודותיי',
+    src: 'https://drive.google.com/thumbnail?id=1PzZBzXBSmCvBjHPHaw3xdswfUlDS7a56',
+    link: 'pages/about-me.html'
+  },
+  {
+    titleEn: 'Animation',
+    titleHe: 'הנפשה',
+    src: 'https://drive.google.com/thumbnail?id=1M2Z84DU_jtEqG1doqmUO7gukAN9MnXws',
+    link: 'pages/animation.html'
+  },
+  {
+    titleEn: 'Courses',
+    titleHe: 'קורסים',
+    src: 'https://drive.google.com/thumbnail?id=1b62GivFwZR4djMTP0qmVhFvk9Vr0-uwy',
+    link: 'pages/courses.html'
+  },
+  {
+    titleEn: 'Deep Fake',
+    titleHe: 'דיפ פייק',
+    src: 'https://drive.google.com/thumbnail?id=1F_h8tAnGZb-u1VoUJ1gX_g1Qq6yz5zMN',
+    link: 'pages/deepfake.html'
+  },
+  {
+    titleEn: 'Design',
+    titleHe: 'עיצוב',
+    src: 'https://drive.google.com/thumbnail?id=1E-AtjtH7ggL-EQzg14GwjIbf8i7hVw8O',
+    link: 'pages/design.html'
+  },
+  {
+    titleEn: 'Motion Design',
+    titleHe: 'עיצוב תנועה',
+    src: 'https://drive.google.com/thumbnail?id=1Uf0Wza_h-qsoE1kZHT1QRUK13mcsqSa5',
+    link: 'pages/motion-design.html'
+  },
+  {
+    titleEn: 'Shoshke Engelmaier',
+    titleHe: 'שושקה אנגלמאיר',
+    src: 'https://drive.google.com/thumbnail?id=15xg5m4gL6K4mt2YfKlAfuKOPWSyxfVE3',
+    link: 'pages/shoshke-engelmaier.html'
+  },
+  {
+    titleEn: 'Visual Art',
+    titleHe: 'אמנות חזותית',
+    src: 'https://drive.google.com/thumbnail?id=1YbayXi_u8lY8bxjuo2VjFwDOCrGnquIh',
+    link: 'pages/visual-art.html'
+  },
+  {
+    titleEn: 'Generative Video',
+    titleHe: "וידאו ג'נרטיבי",
+    src: 'https://drive.google.com/thumbnail?id=1eyH78d9a0R216B1B2Buelf9rIfMCrdRE',
+    link: 'pages/generative-video.html'
+  },
+  {
+    titleEn: 'Above and Beyond',
+    titleHe: 'מעל ומעבר',
+    src: 'https://drive.google.com/thumbnail?id=1rO-rggUfDimdefDfiDZlfesuvyBIE_kq',
+    link: 'pages/above-and-beyond.html'
+  }
 ];
 
 const carousel = document.getElementById('carousel');
@@ -34,8 +84,13 @@ function setLanguage(lang) {
   document.documentElement.setAttribute('data-lang', lang);
   localStorage.setItem('lang', lang);
   if (languageToggle) {
+ 3mvijm-codex/verify-repository-connection-and-version-control
+    languageToggle.textContent = lang === 'en' ? 'HE' : 'EN';
+  }
+  updateCarouselTitles();
     languageToggle.textContent = lang === 'en' ? 'עברית' : 'English';
   }
+ main
 }
 
 if (languageToggle) {
@@ -45,6 +100,40 @@ if (languageToggle) {
   });
 }
 
+ 3mvijm-codex/verify-repository-connection-and-version-control
+function getItemTitle(item) {
+  const lang = document.documentElement.getAttribute('data-lang') || 'en';
+  return lang === 'he' ? item.titleHe : item.titleEn;
+}
+
+function createCarouselItems() {
+  if (!carousel) return;
+  carousel.innerHTML = '';
+  items.forEach((item, i) => {
+    const element = document.createElement('div');
+    element.className = 'carousel-item';
+    element.dataset.index = i;
+    element.innerHTML = `
+      <img src="${item.src}" alt="${item.titleEn}" loading="lazy">
+      <h3>${getItemTitle(item)}</h3>
+    `;
+    element.style.transform = `rotateY(${i * angle}deg) translateZ(400px)`;
+    element.addEventListener('click', (e) => {
+      e.preventDefault();
+      handleItemClick(element, item);
+    });
+    carousel.appendChild(element);
+  });
+}
+
+function updateCarouselTitles() {
+  if (!carousel) return;
+  document.querySelectorAll('.carousel-item').forEach(el => {
+    const index = parseInt(el.dataset.index, 10);
+    el.querySelector('h3').textContent = getItemTitle(items[index]);
+  });
+}
+=======
 function createCarouselItems() {
   items.forEach((item, i) => {
     const element = document.createElement('div');
@@ -61,6 +150,7 @@ function createCarouselItems() {
     carousel.appendChild(element);
   });
 }
+ main
 
 function handleItemClick(clickedItem, itemData) {
   const carouselItems = document.querySelectorAll('.carousel-item');
@@ -75,6 +165,7 @@ function handleItemClick(clickedItem, itemData) {
 }
 
 function updateCarousel() {
+  if (!carousel) return;
   const now = Date.now();
   const deltaTime = (now - lastTime) / 1000;
   lastTime = now;
@@ -92,7 +183,7 @@ function updateCarousel() {
   for (let i = 0; i < items.length; i++) {
     const item = items[i];
     const itemAngle = (i * angle + currentAngle) % 360;
-    const zTranslate = 300 + 50 * Math.cos(itemAngle * Math.PI / 180);
+    const zTranslate = 400 + 70 * Math.cos(itemAngle * Math.PI / 180);
     const opacity = 1 + 0.7 * Math.cos(itemAngle * Math.PI / 180);
     const scale = 0.8 + 0.2 * Math.cos(itemAngle * Math.PI / 180);
     item.style.transform = `rotateY(${i * angle}deg) translateZ(${zTranslate}px) scale(${scale})`;
@@ -159,21 +250,23 @@ function handleTouchEnd(e) {
   isTouching = false;
 }
 
-carousel.addEventListener('mouseenter', () => {
-  isHovering = true;
-  carouselRect = carousel.getBoundingClientRect();
-});
+if (carousel) {
+  carousel.addEventListener('mouseenter', () => {
+    isHovering = true;
+    carouselRect = carousel.getBoundingClientRect();
+  });
 
-carousel.addEventListener('mousemove', handleMouseMove);
+  carousel.addEventListener('mousemove', handleMouseMove);
 
-carousel.addEventListener('mouseleave', () => {
-  isHovering = false;
-  lastMouseX = undefined;
-});
+  carousel.addEventListener('mouseleave', () => {
+    isHovering = false;
+    lastMouseX = undefined;
+  });
 
-carousel.addEventListener('touchstart', handleTouchStart);
-carousel.addEventListener('touchmove', handleTouchMove);
-carousel.addEventListener('touchend', handleTouchEnd);
+  carousel.addEventListener('touchstart', handleTouchStart);
+  carousel.addEventListener('touchmove', handleTouchMove);
+  carousel.addEventListener('touchend', handleTouchEnd);
+}
 
 // Floating Quotes functionality
 const quotes = [
@@ -228,8 +321,17 @@ function startFloatingQuotes() {
 // Start the carousel and floating quotes when the page loads
 window.addEventListener('load', () => {
   const savedLang = localStorage.getItem('lang') || 'en';
+ 3mvijm-codex/verify-repository-connection-and-version-control
+  if (carousel) {
+    createCarouselItems();
+    setLanguage(savedLang); // ensure titles update after items exist
+    updateCarousel();
+  } else {
+    setLanguage(savedLang); // still apply language preference on other pages
+  }
   setLanguage(savedLang);
   createCarouselItems();
   updateCarousel();
+ main
   startFloatingQuotes();
 });

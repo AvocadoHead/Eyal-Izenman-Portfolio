@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Motion Design | עיצוב תנועה</title>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
   <style>
     body {
       font-family: 'Heebo', Arial, sans-serif;
@@ -85,42 +86,15 @@
       transition: opacity 0.3s ease;
     }
     .video-container {
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
       display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
     }
     .video-container.active {
-      display: flex;
-    }
-    .video-wrapper {
-      position: relative;
-      width: 80%;
-      max-width: 800px;
-      aspect-ratio: 16 / 9;
-    }
-    .video-wrapper iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-    .close-button {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 30px;
-      color: white;
-      cursor: pointer;
-      z-index: 1001;
+      display: block;
     }
     .contact-info {
       margin-top: 40px;
@@ -176,7 +150,11 @@
   </style>
 </head>
 <body>
+ 3mvijm-codex/verify-repository-connection-and-version-control
+  <button id="language-toggle">HE</button>
+  <a href="../index.html" class="home-button">Home</a>
   <button id="language-toggle">עברית</button>
+ main
   <div class="container">
     <h1><span class="english">Motion Design</span> | <span class="hebrew">עיצוב תנועה</span></h1>
     <div class="description-container">
@@ -199,6 +177,74 @@
       <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://wa.me/97236030603" alt="WhatsApp QR Code">
     </div>
   </div>
+ 3mvijm-codex/verify-repository-connection-and-version-control
+  <script>
+    const mediaItems = [
+      { src: 'https://drive.google.com/file/d/1RtaC8v_khkGuP-NSqkrgTF4GpSCJx8Bi/preview' },
+      { src: 'https://drive.google.com/file/d/1FV0lEZqs8LowKHbSTNqBEC_-Rtg2stXJ/preview' },
+      { src: 'https://drive.google.com/file/d/1m-1MKGzPd41cwYrQ6zvh0LSc0h1up-G4/preview' },
+      { src: 'https://drive.google.com/file/d/1mE4YdRJnfEazdDrAkms7Y6AcbV6qSxds/preview' },
+      { src: 'https://drive.google.com/file/d/153g8jtcZSw64O62AxBIGe3waIZB_ikEC/preview' },
+      { src: 'https://drive.google.com/file/d/1C6W26MkF4TdkGaqXRw4WwwE0RZyxR4ZA/preview' }
+    ];
+
+    const gallery = document.getElementById('gallery');
+
+    function getVideoId(url) {
+      const match = url.match(/\/d\/(.+)\/preview/);
+      return match ? match[1] : null;
+    }
+
+    mediaItems.forEach(item => {
+      const videoId = getVideoId(item.src);
+      if (!videoId) return;
+
+      const galleryItem = document.createElement('div');
+      galleryItem.className = 'gallery-item';
+
+      const thumbnail = document.createElement('img');
+      thumbnail.src = `https://drive.google.com/thumbnail?id=${videoId}`;
+      thumbnail.alt = 'Video thumbnail';
+      galleryItem.appendChild(thumbnail);
+
+      const videoContainer = document.createElement('div');
+      videoContainer.className = 'video-container';
+      galleryItem.appendChild(videoContainer);
+
+      let videoPlaying = false;
+
+      galleryItem.addEventListener('click', () => {
+        if (!videoPlaying) {
+          videoPlaying = true;
+          videoContainer.classList.add('active');
+          thumbnail.style.opacity = '0';
+
+          const iframe = document.createElement('iframe');
+          iframe.src = `https://drive.google.com/file/d/${videoId}/preview`;
+          iframe.allow = "autoplay";
+          iframe.width = '100%';
+          iframe.height = '100%';
+          videoContainer.appendChild(iframe);
+
+          window.addEventListener('message', function(event) {
+            if (event.origin !== "https://drive.google.com") return;
+            if (event.data === 'videoEnded') {
+              videoPlaying = false;
+              videoContainer.classList.remove('active');
+              thumbnail.style.opacity = '1';
+              videoContainer.innerHTML = '';
+            }
+          }, false);
+        }
+      });
+
+      gallery.appendChild(galleryItem);
+    });
+  </script>
+  <script src="../script.js"></script>
+</body>
+</html>
+=======
   <div class="video-container" id="videoContainer">
     <div class="close-button" id="closeButton">&times;</div>
     <div class="video-wrapper" id="videoWrapper"></div>
@@ -270,3 +316,4 @@
   <script src="../script.js"></script>
 </body>
 </html>
+ main
