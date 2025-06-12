@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Visual Art Gallery - Midjourney Style</title>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css">
   <style>
     body {
       font-family: 'Heebo', Arial, sans-serif;
@@ -61,15 +60,14 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     .gallery {
-      column-count: 4;
-      column-gap: 10px;
-      max-width: 1200px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 10px;
       width: 100%;
     }
     .gallery-item {
-      break-inside: avoid;
-      margin-bottom: 10px;
       position: relative;
+      aspect-ratio: 16 / 9;
       overflow: hidden;
       border-radius: 8px;
       cursor: pointer;
@@ -80,7 +78,8 @@
     }
     .thumbnail {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
       display: block;
       transition: opacity 0.3s ease;
     }
@@ -120,20 +119,7 @@
       height: 45px;
       object-fit: contain;
     }
-    @media (max-width: 1200px) {
-      .gallery {
-        column-count: 3;
-      }
-    }
-    @media (max-width: 900px) {
-      .gallery {
-        column-count: 2;
-      }
-    }
     @media (max-width: 600px) {
-      .gallery {
-        column-count: 1;
-      }
       .description-container {
         flex-direction: column;
       }
@@ -144,11 +130,7 @@
   </style>
 </head>
 <body>
- 3mvijm-codex/verify-repository-connection-and-version-control
-  <button id="language-toggle">HE</button>
-  <a href="../index.html" class="home-button">Home</a>
   <button id="language-toggle">עברית</button>
- main
   <div class="container">
     <h1><span class="english">Visual Art</span> | <span class="hebrew">אמנות חזותית</span></h1>
     <div class="description-container">
