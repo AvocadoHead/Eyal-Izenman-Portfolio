@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DeepFake Gallery</title>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
   <style>
     body {
       font-family: 'Heebo', Arial, sans-serif;
@@ -58,25 +59,23 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
     .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
+      column-count: 4;
+      column-gap: 10px;
+      max-width: 1200px;
       width: 100%;
     }
     .gallery-item {
-      flex: 0 1 calc(33.333% - 20px);
-      max-width: calc(33.333% - 20px);
+      break-inside: avoid;
+      margin-bottom: 10px;
       position: relative;
       overflow: hidden;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
       cursor: pointer;
+      transition: transform 0.3s ease;
     }
     .gallery-item:hover {
       transform: scale(1.05);
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     }
     .thumbnail {
       width: 100%;
@@ -125,16 +124,19 @@
       color: #555;
       text-decoration: none;
     }
+    @media (max-width: 1200px) {
+      .gallery {
+        column-count: 3;
+      }
+    }
     @media (max-width: 900px) {
-      .gallery-item {
-        flex: 0 1 calc(50% - 20px);
-        max-width: calc(50% - 20px);
+      .gallery {
+        column-count: 2;
       }
     }
     @media (max-width: 600px) {
-      .gallery-item {
-        flex: 0 1 100%;
-        max-width: 100%;
+      .gallery {
+        column-count: 1;
       }
       .description-container {
         flex-direction: column;
