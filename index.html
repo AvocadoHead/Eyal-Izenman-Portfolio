@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Floating quotes background (single instance) -->
+  <!-- Floating quotes background (single instance, positioned via CSS) -->
   <div id="floating-quotes-container"></div>
 
   <!-- Language toggle -->
@@ -30,21 +30,32 @@
     <!-- Carousel -->
     <div class="carousel-container">
       <div class="carousel" id="carousel">
-        <!-- Carousel items injected by script.js -->
+        <!-- Carousel items will be injected by script.js -->
       </div>
     </div>
 
-    <!-- Footer area: placeholder text area + video (layout handled by your CSS if you add .footer-area styles) -->
+    <!-- Footer area: text + video side by side -->
     <div class="footer-area">
       <div class="footer-text">
-        <!-- You can add static footer copy here if you like -->
+        <p>
+          <span class="english">
+            Let’s collaborate on visual, AI-driven stories, workshops and motion pieces.<br>
+            From concept to motion, I explore the edges of generative image and video.
+          </span>
+          <span class="hebrew">
+            אשמח לעבוד יחד על פרויקטים חזותיים, גנרטיביים וסדנאות –<br>
+            מרעיון ועד תנועה, אני עובד על החיבורים בין דימוי וידאו לבין בינה גנרטיבית.
+          </span>
+        </p>
       </div>
 
       <div class="footer-video">
-        <video controls class="footer-video-element" style="max-width: 420px; width: 100%; border-radius: 12px;">
-          <source src="Assets/ShowReel 271125 LOW LOW.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <!-- Google Drive embed -->
+        <iframe
+          src="https://drive.google.com/file/d/1Ngxo54WyN8wPMHSpOvaPCC8XcDuV6nD5/preview"
+          allow="autoplay"
+          class="footer-video-iframe">
+        </iframe>
       </div>
     </div>
 
@@ -61,6 +72,7 @@
     </div>
   </div>
 
+  <!-- Your existing JS for language toggle, carousel, and floating quotes -->
   <script src="script.js"></script>
 </body>
 </html>
