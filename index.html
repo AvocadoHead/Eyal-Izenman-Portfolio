@@ -8,51 +8,59 @@
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Floating quotes background (single instance) -->
+  <div id="floating-quotes-container"></div>
+
+  <!-- Language toggle -->
   <button id="language-toggle">עברית</button>
+
   <div class="container">
-    <h1><span class="english">Eyal Izenman</span> | <span class="hebrew">איל איזנמן</span></h1>
-    <h2><span class="english">Visual, AI Artist & Educator</span> | <span class="hebrew">אמן חזותי בינאי ומורה</span></h2>
+    <!-- Title -->
+    <h1>
+      <span class="english">Eyal Izenman</span> |
+      <span class="hebrew">איל איזנמן</span>
+    </h1>
+
+    <!-- Subtitle -->
+    <h2>
+      <span class="english">Visual, AI Artist & Educator</span> |
+      <span class="hebrew">אמן חזותי בינאי ומורה</span>
+    </h2>
+
+    <!-- Carousel -->
     <div class="carousel-container">
       <div class="carousel" id="carousel">
-        <!-- Carousel items will be added dynamically here -->
+        <!-- Carousel items injected by script.js -->
       </div>
-    <</div>
+    </div>
 
-      <div class="footer-area">
-        <div class="footer-text">
-          <div id="floating-quotes-container"></div>
-        </div>
-        <div class="footer-video">
-          <video controls class="footer-video-element">
-            <source src="Assets/ShowReel 271125 LOW LOW.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
+    <!-- Footer area: placeholder text area + video (layout handled by your CSS if you add .footer-area styles) -->
+    <div class="footer-area">
+      <div class="footer-text">
+        <!-- You can add static footer copy here if you like -->
       </div>
 
-      <div class="contact-info"<div id="floating-quotes-container"><</div>
-
-      <div style="margin-top: 24px; text-align: center;">
-        <video
-          controls
-          style="max-width: 420px; width: 100%; border-radius: 12px;"
-        >
+      <div class="footer-video">
+        <video controls class="footer-video-element" style="max-width: 420px; width: 100%; border-radius: 12px;">
           <source src="Assets/ShowReel 271125 LOW LOW.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
+    </div>
 
-      <div id="floating-quotes-container"/div>
+    <!-- Contact info -->
     <div class="contact-info">
       <div class="contact-details">
         <a href="https://wa.me/97236030603" target="_blank">WhatsApp: +972 3 6030603</a>
         <a href="mailto:Eyalizenman@gmail.com" class="email-link">Eyalizenman@gmail.com</a>
       </div>
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://wa.me/97236030603" alt="WhatsApp QR Code">
+      <img
+        src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://wa.me/97236030603"
+        alt="WhatsApp QR Code"
+      >
     </div>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
-
-
